@@ -1,0 +1,20 @@
+@use 'src/styles/vars';
+
+@font-face {
+  font-family: 'Harry';
+  src: url('../../assets/fonts/harryp.ttf');
+}
+
+.logo {
+  font-family: 'Harry', sans-serif;
+  font-size:32px;
+  text-transform: uppercase;
+}
+
+.logo.white {
+  color: vars.$color-white;
+}
+
+.logo.grey {
+  color: vars.$color-grey;
+}

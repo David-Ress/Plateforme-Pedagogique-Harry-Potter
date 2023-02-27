@@ -1,0 +1,39 @@
+@use 'src/styles/vars';
+
+@font-face {
+  font-family: 'Harry';
+  src: url('../../assets/fonts/harryp.ttf');
+}
+
+.login-form-element {
+  height:75vh;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: url('../../assets/img/forbidden-forest-hp.jpg');
+  background-size: cover;
+  background-position: center center;
+}
+
+.login-form-title {
+  font-family:'Harry', sans-serif;
+  letter-spacing: vars.$title-letter-spacing;
+  font-size:vars.$font-size-title;
+  text-transform: uppercase;
+  margin-bottom:2rem;
+  color:vars.$color-white;
+
+}
+
+.login-form-button {
+  border:none;
+  background:vars.$color-grey;
+  color:vars.$color-white;
+  padding:10px;
+  width:300px;
+  border-radius:5px;
+  font-family: 'Josefin sans', sans-serif;
+  font-size:17px;
+  font-weight:600;
+}

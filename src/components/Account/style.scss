@@ -1,0 +1,42 @@
+@use 'src/styles/vars';
+
+@font-face {
+  font-family: 'Harry';
+  src: url('../../assets/fonts/harryp.ttf');
+}
+
+.account {
+  background: url('../../assets/img/forbidden-forest-hp.jpg');
+  background-size: cover;
+  background-position: center center;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding:5rem 0 5rem 0;
+
+  &-disconnect {
+    margin-top:1rem;
+    color:vars.$color-white;
+  }
+
+  &-list {
+    display:flex;
+    margin-top:5rem;
+  }
+}
+
+.account h1 {
+  font-family:'Harry', sans-serif;
+  color:vars.$color-white;
+  letter-spacing: vars.$title-letter-spacing;
+  font-size:vars.$font-size-title;
+  text-transform: uppercase;
+}
+
+
+@media (max-width: 942px) { 
+  .account-list {
+    flex-direction: column;
+  } 
+}

@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "lastname": "Laf",
+        "firstname": "JM",
+        "class": "3B",
+        "score": 300,
+        "house_id": 2,
+        "house_name":"Serpentard",
+        "house_name_in_english":"Slytherin",
+        "created_at": "2023-02-17T16:21:08.364Z",
+        "updated_at": null
+    },
+    {
+        "id": 2,
+        "lastname": "Res",
+        "firstname": "David",
+        "class": "4A",
+        "score": 20,
+        "house_id": 1,
+        "house_name":"Gryffondor",
+        "house_name_in_english":"Gryffindor",
+        "created_at": "2023-02-17T16:21:08.364Z",
+        "updated_at": null
+    },
+    {
+        "id": 3,
+        "lastname": "Mus",
+        "firstname": "Laurie",
+        "class": "4C",
+        "score": 900,
+        "house_id": 3,
+        "house_name":"Poufsouffle",
+        "house_name_in_english":"Hufflepuff",
+        "created_at": "2023-02-17T16:21:08.364Z",
+        "updated_at": null
+    },
+    {
+        "id": 4,
+        "lastname": "Moy",
+        "firstname": "Mathieu",
+        "class": "4P",
+        "score": 8,
+        "house_id": 4,
+        "house_name":"Serdaigle",
+        "house_name_in_english":"Ravenclaw",
+        "created_at": "2023-02-17T16:21:08.364Z",
+        "updated_at": null
+    },
+    {
+        "id": 5,
+        "lastname": "Ros",
+        "firstname": "Gigi",
+        "class": "3C",
+        "score": 10,
+        "house_id": 2,
+        "house_name":"Serpentard",
+        "house_name_in_english":"Slytherin",
+        "created_at": "2023-02-17T16:21:08.364Z",
+        "updated_at": null
+    }
+]

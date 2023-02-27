@@ -1,0 +1,14 @@
+.header {
+  background: url('../../assets/img/image-header-hp.jpg');
+  background-size: cover;
+  background-position: center center;
+  height:60vh;
+}
+
+
+@media (max-width: 942px) {
+  .header {
+    height:50vh;
+  }
+}
+

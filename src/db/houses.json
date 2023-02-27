@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Gryffondor",
+    "nameInEnglish": "Gryffindor",
+    "score": 1000
+  },
+  {
+    "id": 2,
+    "name": "Serpentard",
+    "nameInEnglish": "Slytherin",
+    "score": 700
+  },
+  {
+    "id": 4,
+    "name": "Serdaigle",
+    "nameInEnglish": "Ravenclaw",
+    "score": 500
+  },
+  {
+    "id": 3,
+    "name": "Poufsouffle",
+    "nameInEnglish": "Hufflepuff",
+    "score": 400
+  }
+]

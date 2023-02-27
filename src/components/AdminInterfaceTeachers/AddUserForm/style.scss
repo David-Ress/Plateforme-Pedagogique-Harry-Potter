@@ -1,0 +1,47 @@
+@use 'src/styles/vars';
+
+.form-select{
+  background:vars.$color-white;
+  border:1px solid vars.$color-grey;
+  border-radius:5px;
+  width: 140px;
+  height: 40px;
+  padding: 0.7rem;
+  outline: none;
+  margin-left:1em;
+}
+
+.add-student-recipient{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%
+}
+
+.field-input {
+  display:inline;
+  border:1px solid vars.$color-grey;
+  border-radius: 5px;
+  padding:10px;
+  margin-bottom:0.9em;
+  width:300px;
+  background:#F2F2F2;
+}
+
+.input-fields{
+  display:flex;
+  justify-content:space-between;
+}
+
+.add-student-submit {
+  border:none;
+  background:#757575;
+  color:vars.$color-white;
+  height:45px;
+  width:100%;
+  border-radius:5px;
+  font-family: 'Josefin sans', sans-serif;
+  font-size:17px;
+  font-weight:600;
+  margin-bottom:1em;
+}

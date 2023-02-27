@@ -1,0 +1,36 @@
+@use 'src/styles/vars';
+
+.form-select-change-user-role{
+  border:1px solid vars.$color-grey;
+  border-radius:5px;
+  width: 100%;
+  height: 40px;
+  padding: 0.7rem;
+  outline: none;
+  margin-left:1em;
+}
+
+.action-button{
+  border:none;
+  background:#757575;
+  color:vars.$color-white;
+  height:45px;
+  width:10em;
+  border-radius:5px;
+  font-family: 'Josefin sans', sans-serif;
+  font-size:17px;
+  font-weight:600;
+  margin: auto 1em;
+}
+
+
+.form-select-change-house{
+  display:flex;
+  align-items: center;
+}
+
+
+.points-management-recipient .student-header-info {
+  flex-wrap: nowrap;
+}
+
