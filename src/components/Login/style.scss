@@ -37,3 +37,13 @@
   font-size:17px;
   font-weight:600;
 }
+
+.error-message {
+  margin-top:1rem;
+  text-align:center;
+  background:#ff4136;
+  padding:0.7rem;
+  color:vars.$color-white;
+  font-size:1.1rem;
+  border-radius:5px;
+}

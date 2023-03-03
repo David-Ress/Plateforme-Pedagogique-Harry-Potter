@@ -14,6 +14,15 @@
   text-transform: uppercase;
 }
 
+.success-message-password {
+  margin-top:1rem;
+  text-align:center;
+  background:#9dcea0;
+  padding:0.7rem;
+  font-size:1.1rem;
+  border-radius:5px;
+}
+
 
 @media (max-width: 942px) { 
   .account-list {

@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
 
-const port = 0000;
+const port = 8080;
 
 module.exports = merge(common, {
   mode: 'development',
@@ -64,6 +64,7 @@ module.exports = merge(common, {
     static: {
       directory: paths.build,
     },
+    allowedHosts: 'all',
     historyApiFallback: true,
     open: false,
     compress: true,

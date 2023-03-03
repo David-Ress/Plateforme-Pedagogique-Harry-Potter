@@ -4,35 +4,37 @@ import './style.scss';
 
 const Student = ({
   firstname,
-  house_name,
-  score,
-  house_name_in_english,
+  name,
+  student_total_score,
   houseLogo,
-}) => (
-  <ul className="student-list">
-    <li className="student-item">
-      <img className="student-img" src={houseLogo} alt="blason" />
-      <div className={`text-container ${house_name_in_english.toLowerCase()}-border`}>
-        <p className={`student-name ${house_name_in_english.toLowerCase()}`}>
-          {firstname}
+}) => {
+  const houseNameLowercase = typeof name === 'string' ? name.toLowerCase() : '';
+  return (
+    <ul className="student-list">
+      <li className="student-item">
+        <img className="student-img" src={houseLogo} alt="blason" />
+        <div className={`text-container ${houseNameLowercase}-border`}>
+          <p className={`student-name ${houseNameLowercase}`}>
+            {firstname}
+          </p>
+          <p className={`student-house ${houseNameLowercase}`}>
+            {name}
+          </p>
+        </div>
+        <p className="student-point">
+          {student_total_score} points
         </p>
-        <p className={`student-house ${house_name_in_english.toLowerCase()}`}>
-          {house_name}
-        </p>
-      </div>
-      <p className="student-point">
-        {score} points
-      </p>
-    </li>
-  </ul>
-);
+      </li>
+    </ul>
+  );
+};
 
 export default Student;
 
 Student.propTypes = {
   firstname: PropTypes.string.isRequired,
-  house_name: PropTypes.string.isRequired,
-  score: PropTypes.number.isRequired,
-  house_name_in_english: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  student_total_score: PropTypes.number.isRequired,
+  // house_name_in_english: PropTypes.string.isRequired,
   houseLogo: PropTypes.string.isRequired,
 };

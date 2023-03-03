@@ -1,5 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Logo from '../Logo';
@@ -9,11 +10,11 @@ import './style.scss';
 const Navbar = ({
   classColor,
   classLinkColor,
-  classColorBurger
+  classColorBurger,
 }) => {
   // Utilisation du use state pour gérer l'affichage du menu
   const [showLinks, setShowLinks] = useState(false);
-  const [isLogged, setLogged] = useState(false);
+  const isLogged = useSelector((state) => state.user.isLogged);
   // Fonction permettant d'afficher ou non le menu mobile
   const handleShowLinks = () => {
     setShowLinks(!showLinks);
@@ -73,6 +74,7 @@ const Navbar = ({
 Navbar.propTypes = {
   classColor: PropTypes.string.isRequired,
   classLinkColor: PropTypes.string.isRequired,
+  classColorBurger: PropTypes.string.isRequired,
 };
 
 export default Navbar;

@@ -24,7 +24,7 @@
 
 .point-student-header span {
   display:inline-block;
-  min-width:250px;
+  min-width:140px;
 }
 
 .student-point-points {
@@ -143,4 +143,8 @@
   .point-student-footer-text {
     font-size:1.2rem;
   }
+}
+
+.page-student .point-student-header span, .page-house .point-student-header span {
+  min-width: 200px;
 }

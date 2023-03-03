@@ -1,0 +1,19 @@
+@use 'src/styles/vars';
+
+.form-sort {
+  &-title {
+    font-size:1.1rem;
+    margin-right:1.8rem;
+  }
+  & select {
+    background:vars.$color-white;
+    border:1px solid vars.$color-grey;
+    border-radius:5px;
+    width: 140px;
+    height: 50px;
+    padding: 0.7rem;
+    outline: none;
+  }
+
+
+}
