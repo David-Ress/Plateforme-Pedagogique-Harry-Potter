@@ -15,8 +15,8 @@ const SortHouse = ({
     const options = {
       'a-z': [...houseArray].sort((a, b) => (a.name < b.name ? -1 : 1)),
       'z-a': [...houseArray].sort((a, b) => (a.name < b.name ? 1 : -1)),
-      '1-9': [...houseArray].sort((a, b) => (a.houses_total_score < b.houses_total_score ? -1 : 1)),
-      '9-1': [...houseArray].sort((a, b) => (a.houses_total_score < b.houses_total_score ? 1 : -1)),
+      '1-9': [...houseArray].sort((a, b) => (Number(a.houses_total_score) < Number(b.houses_total_score) ? -1 : 1)),
+      '9-1': [...houseArray].sort((a, b) => (Number(a.houses_total_score) < Number(b.houses_total_score) ? 1 : -1)),
     };
     console.log(houseArray);
     dispatch(setArray(options[selectEvent.target.value]));
