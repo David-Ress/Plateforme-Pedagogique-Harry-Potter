@@ -18,10 +18,10 @@ const WizardRanking = () => {
           key={student.id}
           {...student}
           houseLogo={
-            student.name === 'Serpentard' ? LogoSlytherin
-              : student.name === 'Poufsouffle' ? LogoHufflepuff
-                : student.name === 'Serdaigle' ? LogoRavenclaw
-                  : student.name === 'Gryffondor' ? LogoGryffindor
+            student.house_name === 'Serpentard' ? LogoSlytherin
+              : student.house_name === 'Poufsouffle' ? LogoHufflepuff
+                : student.house_name === 'Serdaigle' ? LogoRavenclaw
+                  : student.house_name === 'Gryffondor' ? LogoGryffindor
                     : null
         }
         />

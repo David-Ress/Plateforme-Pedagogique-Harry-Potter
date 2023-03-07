@@ -8,6 +8,7 @@ export const initialState = {
   email: '',
   role_id: null,
   password: '',
+  successMessage: null,
 };
 
 export const saveUserId = createAction('changeUserInfo/saveUserId');
@@ -17,6 +18,7 @@ export const saveUserEmail = createAction('changeUserInfo/saveUserEmail');
 export const saveUserRoleId = createAction('changeUserInfo/saveUserRoleId');
 export const changeUserInfo = createAction('changeUserInfo/changeUserInfo');
 export const changeRole = createAction('changeUserInfo/changeRole');
+export const SuccessMessage = createAction('changeUserInfo/SuccessMessage');
 
 const changeUserInfoReducer = createReducer(initialState, (builder) => {
   builder
@@ -46,6 +48,10 @@ const changeUserInfoReducer = createReducer(initialState, (builder) => {
 
     .addCase(changeRole, (state, action) => {
       state.role_id = action.payload;
+    })
+
+    .addCase(SuccessMessage, (state, action) => {
+      state.successMessage = action.payload;
     });
 });
 

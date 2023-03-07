@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { fetchAdminStudents, deleteStudent } from '../../api/students';
 import './style.scss';
 import SearchBar from '../SearchBar';
@@ -11,6 +11,13 @@ import { changeSearchStudent } from '../../store/reducers/student';
 const AdminInterfaceStudents = () => {
   const studentData = useSelector((state) => state.adminStudent.filterStudentAdmin);
   const searchStudent = useSelector((state) => state.student.searchStudent);
+
+  const [activeStudentId, setActiveStudentId] = useState(null);
+
+  const toggleAddPoint = (studentId) => {
+    setActiveStudentId((prevId) => (prevId === studentId ? null : studentId));
+  };
+
   const dispatch = useDispatch();
   const handleClick = (id) => {
     dispatch(changeTargetId(id));
@@ -26,8 +33,7 @@ const AdminInterfaceStudents = () => {
   };
 
   const filteredStudents = searchStudent
-    ? studentData.filter((student) =>
-      student.firstname.toLowerCase().includes(searchStudent.toLowerCase())
+    ? studentData.filter((student) => student.firstname.toLowerCase().includes(searchStudent.toLowerCase())
       || student.lastname.toLowerCase().includes(searchStudent.toLowerCase()))
     : studentData;
 
@@ -46,6 +52,8 @@ const AdminInterfaceStudents = () => {
           handleFirstClick={handleClick}
           onClickConfirm={onClickConfirm}
           handleInputChange={handleInputChange}
+          showAdd={student.id === activeStudentId}
+          toggleAddPoint={toggleAddPoint}
         />
       ))}
 

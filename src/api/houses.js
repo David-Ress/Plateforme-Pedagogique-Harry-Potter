@@ -19,18 +19,30 @@ export const addPointHouses = () => async (dispatch, getState) => {
   const {
     value, content, user_id, house_id,
   } = state.addPoints;
+  const { token } = state.user;
 
   try {
-    await axiosInstance.post('point/add', {
-      house_id,
-      value,
-      content,
-      user_id,
-    })
+    await axiosInstance.post(
+      'point/add',
+      {
+        house_id,
+        value,
+        content,
+        user_id,
+      },
+      {
+        headers: {
+          authorization: token,
+        },
+      },
+    )
       .then((response) => {
         console.log(response);
         dispatch(sendSuccessMessage('Vos points ont bien été ajoutés.'));
         dispatch(fetchHouses());
+        setTimeout(() => {
+          dispatch(sendSuccessMessage());
+        }, 5000);
       });
   }
   catch (e) {
@@ -44,6 +56,7 @@ export const removePointHouses = () => async (dispatch, getState) => {
   const {
     value, content, user_id, house_id,
   } = state.addPoints;
+  const { token } = state.user;
 
   try {
     await axiosInstance.post('point/remove', {
@@ -51,11 +64,17 @@ export const removePointHouses = () => async (dispatch, getState) => {
       value,
       content,
       user_id,
+      headers: {
+        authorization: token,
+      },
     })
       .then((response) => {
         console.log(response);
         dispatch(sendSuccessMessage('Vos points ont bien été enlevés.'));
         dispatch(fetchHouses());
+        setTimeout(() => {
+          dispatch(sendSuccessMessage());
+        }, 5000);
       });
   }
   catch (e) {

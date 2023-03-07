@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { NavLink } from 'react-router-dom';
 import Item from './Item';
-import Navbar from '../Navbar';
+import Navbar from '../ReusableComponents/Navbar';
 import { logout } from '../../store/reducers/user';
 import './style.scss';
 import student from '../../assets/img/student.png';

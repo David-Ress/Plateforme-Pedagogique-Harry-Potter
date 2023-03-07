@@ -3,20 +3,19 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './style.scss';
-import Field from '../../Login/Field';
+import Field from '../../ReusableComponents/Field';
 import wand from '../../../assets/img/wand.png';
 import { changeContentAndValue, changeHouse } from '../../../store/reducers/changeStudent';
 import { editStudent } from '../../../api/students';
 
 const Student = ({
-  firstname, lastname, house_name, class_name, handleFirstClick, onClickConfirm, id, house_id,
+  firstname, lastname, house_name, class_name, handleFirstClick, onClickConfirm, id, house_id, toggleAddPoint, showAdd,
 }) => {
   const selectedStudent = useSelector((state) => state.changeStudent);
   const dispatch = useDispatch();
-  const [showAdd, setShowAddForm] = useState(false);
   const [deleteConfirmation, setDeleteConfirmation] = useState(false);
   const manageAddPoint = () => {
-    setShowAddForm(!showAdd);
+    toggleAddPoint(id);
     if (!showAdd) {
       dispatch(changeContentAndValue({
         key: 'firstname',
@@ -54,7 +53,7 @@ const Student = ({
   const handleSubmit = (evt) => {
     evt.preventDefault();
     dispatch(editStudent());
-    setShowAddForm(!showAdd);
+    toggleAddPoint(id);
   };
   return (
     <div className="point-student">
@@ -87,17 +86,19 @@ const Student = ({
         <form className="add-student-recipient" onSubmit={handleSubmit}>
           <div className="input-fields">
             <Field
-              name="lastname"
-              value={selectedStudent.lastname}
-              placeholder={lastname}
-              onChange={handleInputChange}
-            />
-            <Field
               name="firstname"
               value={selectedStudent.firstname}
               placeholder={firstname}
               onChange={handleInputChange}
             />
+
+            <Field
+              name="lastname"
+              value={selectedStudent.lastname}
+              placeholder={lastname}
+              onChange={handleInputChange}
+            />
+
             <Field
               name="class_name"
               value={selectedStudent.class_name}
@@ -131,7 +132,9 @@ Student.propTypes = {
   house_name: PropTypes.string.isRequired,
   class_name: PropTypes.string.isRequired,
   handleFirstClick: PropTypes.func.isRequired,
+  toggleAddPoint: PropTypes.func.isRequired,
   onClickConfirm: PropTypes.func.isRequired,
   id: PropTypes.number.isRequired,
   house_id: PropTypes.number.isRequired,
+  showAdd: PropTypes.bool.isRequired,
 };

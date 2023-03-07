@@ -4,9 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import { filterAllStudentAdmin } from '../../store/reducers/adminStudent';
-import Filter from '../Filter';
-import Navbar from '../Navbar';
-import FilterMobile from '../Filter/FilterMobile';
+import Navbar from '../ReusableComponents/Navbar';
+import FilterMobile from '../ReusableComponents/Filter/FilterMobile';
 
 const AdminInterface = ({
   component, selectedStudent, selectedTeacher, page, sortComponent,
@@ -26,16 +25,16 @@ const AdminInterface = ({
     setSelectedHouses((prevSelectedHouses) => {
       if (prevSelectedHouses.includes(house)) {
         return prevSelectedHouses.filter((selectdHouse) => selectdHouse !== house);
-      } else {
+      }
+      else {
         return [...prevSelectedHouses, house];
       }
     });
   };
 
-  const filteredStudents = selectedHouses.length > 0 
+  const filteredStudents = selectedHouses.length > 0
     ? studentData.filter((student) => selectedHouses.includes(student.house_name))
     : studentData;
-
 
   dispatch(filterAllStudentAdmin(filteredStudents));
 
@@ -119,11 +118,11 @@ const AdminInterface = ({
 export default AdminInterface;
 
 AdminInterface.propTypes = {
-  component: PropTypes.string.isRequired,
+  component: PropTypes.object.isRequired,
   selectedStudent: PropTypes.string,
   selectedTeacher: PropTypes.string,
   page: PropTypes.string.isRequired,
-  sortComponent: PropTypes.elementType.isRequired,
+  sortComponent: PropTypes.object.isRequired,
 };
 
 AdminInterface.defaultProps = {

@@ -1,0 +1,30 @@
+@use '../../../styles/vars';
+
+.field-input {
+  border:1px solid vars.$color-grey;
+  border-radius: 5px;
+  padding:10px;
+  margin-bottom:0.9em;
+  width:300px;
+  background:#F2F2F2;
+}
+
+.field-input::placeholder {
+  font-family:'Josefin sans', sans-serif;
+  color:vars.$color-grey;
+  font-size:0.9rem;
+}
+
+.field-input {
+  border:1px solid vars.$color-grey;
+  border-radius: 5px;
+  padding:10px;
+  margin-bottom:0.9em;
+  width:300px;
+}
+
+.field-input::placeholder {
+  font-family:'Josefin sans', sans-serif;
+  color:vars.$color-grey;
+  font-size:0.9rem;
+}

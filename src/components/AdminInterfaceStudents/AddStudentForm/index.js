@@ -4,7 +4,7 @@ import { addStudent } from '../../../api/students';
 import {
   changeContentAndValue, changeUser, changeHouse, resetForm,
 } from '../../../store/reducers/adminStudent';
-import Field from '../../Login/Field';
+import Field from '../../ReusableComponents/Field';
 import './style.scss';
 
 const AddStudentForm = () => {
@@ -12,6 +12,7 @@ const AddStudentForm = () => {
   const lastname = useSelector((state) => state.adminStudent.lastname);
   const firstname = useSelector((state) => state.adminStudent.firstname);
   const class_name = useSelector((state) => state.adminStudent.class_name);
+  const score = useSelector((state) => state.adminStudent.score);
   const user_id = useSelector((state) => state.user.id);
 
   const handleInputChange = (value, name) => {
@@ -49,6 +50,12 @@ const AddStudentForm = () => {
           name="class_name"
           placeholder="Classe"
           value={class_name}
+          onChange={handleInputChange}
+        />
+        <Field
+          name="score"
+          placeholder="Score"
+          value={score}
           onChange={handleInputChange}
         />
         <label htmlFor="house">Maison:

@@ -7,7 +7,7 @@ export const initialState = {
   class_name: '',
   house_id: 2,
   user_id: null,
-  score: 0,
+  score: 'Score',
   studentList: [],
   target_id: null,
   filterStudentAdmin: [],
@@ -37,6 +37,7 @@ const adminStudentReducer = createReducer(initialState, (builder) => {
       state.lastname = '';
       state.class_name = '';
       state.house_id = 2;
+      state.score = 'Score';
     })
     .addCase(setAdminStudentList, (state, action) => {
       state.studentList = action.payload;

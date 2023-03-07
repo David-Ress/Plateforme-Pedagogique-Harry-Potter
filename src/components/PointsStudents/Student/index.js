@@ -1,54 +1,44 @@
 /* eslint-disable camelcase */
 import PropTypes from 'prop-types';
-import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   changeContentAndValue, changeUser, selectStudent, resetForm,
 } from '../../../store/reducers/addPoints';
 import { addPointStudents, removePointStudents } from '../../../api/students';
-import Field from '../../Login/Field';
+import Field from '../../ReusableComponents/Field';
 import './style.scss';
 
 const Student = ({
-  firstname, lastname, house_name, student_total_score, id,
+  firstname, lastname, house_name, student_total_score, id, toggleAddPoint, showAdd, toggleDeletePoint, showDelete,
 }) => {
   const content = useSelector((state) => state.addPoints.content);
   const valueContent = useSelector((state) => state.addPoints.value);
   const user_id = useSelector((state) => state.user.id);
   const dispatch = useDispatch();
 
-  const [showAdd, setShowAddForm] = useState(false);
-  const [showDelete, setShowDeleteForm] = useState(false);
   const manageAddPoint = () => {
-    setShowAddForm(!showAdd);
-    if (showDelete) {
-      setShowDeleteForm(!showDelete);
-    }
+    toggleAddPoint(id);
   };
   const manageDeletePoint = () => {
-    setShowDeleteForm(!showDelete);
-    if (showAdd) {
-      setShowAddForm(!showAdd);
-    }
+    toggleDeletePoint(id);
   };
 
   const handleAddPoint = (evt) => {
     evt.preventDefault();
     dispatch(addPointStudents());
-    setShowAddForm(!showAdd);
     dispatch(resetForm());
+    toggleAddPoint(id);
   };
 
   const handleRemovePoint = (evt) => {
     evt.preventDefault();
     dispatch(removePointStudents());
-    setShowDeleteForm(!showDelete);
     dispatch(resetForm());
+    toggleDeletePoint(id);
   };
 
   const handleInputChange = (value, name) => {
     dispatch(selectStudent(id));
-    console.log(id);
     dispatch(changeUser(user_id));
     dispatch(changeContentAndValue({ key: name, value: value }));
   };
@@ -110,45 +100,45 @@ const Student = ({
       )}
 
       {showDelete && (
-        <div className="point-student-footer">
-          <div className="point-student-footer-manage">
-            <span className="point-student-footer-text">Enlever des points</span>
-            <form className="point-student-delete" onSubmit={handleRemovePoint}>
-              <Field
-                name="content"
-                placeholder="Motif"
-                type="text"
-                onChange={handleInputChange}
-                value={content}
-              />
+      <div className="point-student-footer">
+        <div className="point-student-footer-manage">
+          <span className="point-student-footer-text">Enlever des points</span>
+          <form className="point-student-delete" onSubmit={handleRemovePoint}>
+            <Field
+              name="content"
+              placeholder="Motif"
+              type="text"
+              onChange={handleInputChange}
+              value={content}
+            />
 
-              <Field
-                name="value"
-                placeholder="Note"
-                type="number"
-                className="field-note"
-                onChange={handleInputChange}
-                value={valueContent}
-              />
+            <Field
+              name="value"
+              placeholder="Note"
+              type="number"
+              className="field-note"
+              onChange={handleInputChange}
+              value={valueContent}
+            />
 
-              <button
-                type="submit"
-                className="point-student-submit"
-              >
-                Valider
-              </button>
+            <button
+              type="submit"
+              className="point-student-submit"
+            >
+              Valider
+            </button>
 
-              <button
-                type="button"
-                className="point-student-cancel"
-                onClick={manageDeletePoint}
-              >
-                Annuler
-              </button>
+            <button
+              type="button"
+              className="point-student-cancel"
+              onClick={manageDeletePoint}
+            >
+              Annuler
+            </button>
 
-            </form>
-          </div>
+          </form>
         </div>
+      </div>
       )}
     </div>
 
@@ -163,4 +153,8 @@ Student.propTypes = {
   house_name: PropTypes.string.isRequired,
   student_total_score: PropTypes.number.isRequired,
   id: PropTypes.number.isRequired,
+  toggleAddPoint: PropTypes.func.isRequired,
+  toggleDeletePoint: PropTypes.func.isRequired,
+  showAdd: PropTypes.bool.isRequired,
+  showDelete: PropTypes.bool.isRequired,
 };

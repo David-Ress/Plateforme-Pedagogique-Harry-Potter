@@ -46,12 +46,11 @@ const Hourglass = ({
 };
 
 Hourglass.propTypes = {
-  rank: PropTypes.number.isRequired,
-  houses_total_score: PropTypes.number.isRequired,
-  // pointsSinceLastTick: PropTypes.number.isRequired,
-  name: PropTypes.string.isRequired,
-  nameInEnglish: PropTypes.string.isRequired,
-  percentage: PropTypes.number.isRequired,
+  rank: PropTypes.number,
+  houses_total_score: PropTypes.string,
+  name: PropTypes.string,
+  nameInEnglish: PropTypes.string,
+  percentage: PropTypes.number,
 };
 
 export default Hourglass;

@@ -1,0 +1,33 @@
+.footer {
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  padding:35px 25px 25px 25px;
+  background:#F2F2F2;
+}
+
+.footer-link {
+  font-weight:600;
+  font-size:14px;
+  margin-right:20px;
+}
+
+.footer-link:first-child::after {
+  content:"●";
+  margin-left:20px;
+}
+
+
+@media (max-width: 942px) {
+  .footer {
+    flex-direction: column;
+  }
+  
+  .footer-links {
+    margin-top:15px;
+  }
+
+  .footer-link:last-child {
+    margin-right:0;
+  }
+}

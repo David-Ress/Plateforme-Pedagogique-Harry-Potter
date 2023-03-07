@@ -1,13 +1,12 @@
 import { NavLink } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import { filterAllStudent } from '../../store/reducers/student';
-import Filter from '../Filter';
-import Navbar from '../Navbar';
+import Navbar from '../ReusableComponents/Navbar';
 import './style.scss';
-import FilterMobile from '../Filter/FilterMobile';
+import FilterMobile from '../ReusableComponents/Filter/FilterMobile';
 
 const PointsManagement = ({
   component, selectedStudent, selectedHouse, page, sortComponent,
@@ -27,19 +26,18 @@ const PointsManagement = ({
     setSelectedHouses((prevSelectedHouses) => {
       if (prevSelectedHouses.includes(house)) {
         return prevSelectedHouses.filter((selectdHouse) => selectdHouse !== house);
-      } else {
-        return [...prevSelectedHouses, house];
       }
+      return [...prevSelectedHouses, house];
     });
   };
 
-  const filteredStudents = selectedHouses.length > 0 
+  const filteredStudents = selectedHouses.length > 0
     ? studentData.filter((student) => selectedHouses.includes(student.house_name))
     : studentData;
 
-
-  dispatch(filterAllStudent(filteredStudents));
-
+  useEffect(() => {
+    dispatch(filterAllStudent(filteredStudents));
+  }, [filteredStudents, dispatch]);
 
   return (
     <div>
@@ -96,14 +94,14 @@ const PointsManagement = ({
                 <input type="checkbox" id="slytherin" name="slytherin" value="Serpentard" checked={selectedHouses.includes('Serpentard')} onChange={handleCheckboxChange} />
                 <span className="checkmark"> </span>
               </label>
-              
+
               <label className="filter-label" htmlFor="ravenclaw">Serdaigle
-                <input type="checkbox" id="ravenclaw" name="ravenclaw" value="Serdaigle" checked={selectedHouses.includes('Serdaigle')} onChange={handleCheckboxChange}/>
+                <input type="checkbox" id="ravenclaw" name="ravenclaw" value="Serdaigle" checked={selectedHouses.includes('Serdaigle')} onChange={handleCheckboxChange} />
                 <span className="checkmark"> </span>
               </label>
 
               <label className="filter-label" htmlFor="hufflepuff">Poufsouffle
-                <input type="checkbox" id="hufflepuff" name="hufflepuff" value="Poufsouffle" checked={selectedHouses.includes('Poufsouffle')} onChange={handleCheckboxChange}/>
+                <input type="checkbox" id="hufflepuff" name="hufflepuff" value="Poufsouffle" checked={selectedHouses.includes('Poufsouffle')} onChange={handleCheckboxChange} />
                 <span className="checkmark"> </span>
               </label>
             </div>
@@ -129,8 +127,6 @@ PointsManagement.propTypes = {
   selectedStudent: PropTypes.string,
   selectedHouse: PropTypes.string,
   page: PropTypes.string.isRequired,
-  sentArray: PropTypes.array.isRequired,
-  setArray: PropTypes.func.isRequired,
   sortComponent: PropTypes.object.isRequired,
 };
 

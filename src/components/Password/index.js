@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { changeNewPassword } from '../../store/reducers/user';
+import { changeNewPassword, resetForm } from '../../store/reducers/user';
 import { changePassword } from '../../api/users';
-import Navbar from '../Navbar';
-import Field from '../Login/Field';
+import Navbar from '../ReusableComponents/Navbar';
+import Field from '../ReusableComponents/Field';
 import './style.scss';
 
 const Password = () => {
@@ -11,7 +11,6 @@ const Password = () => {
   const newPassword = useSelector((state) => state.user.newPassword);
   const confirmation = useSelector((state) => state.user.confirmation);
   const successMessage = useSelector((state) => state.user.confirmMessage);
-  console.log(successMessage);
 
   const handleInputChange = (value, name) => {
     dispatch(changeNewPassword({ key: name, value: value }));
@@ -20,6 +19,7 @@ const Password = () => {
   const handleChangePassword = (evt) => {
     evt.preventDefault();
     dispatch(changePassword());
+    dispatch(resetForm());
   };
 
   return (

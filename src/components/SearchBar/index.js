@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import Field from '../Login/Field';
+import Field from '../ReusableComponents/Field';
 import './style.scss';
 
 const SearchBar = ({
