@@ -1,0 +1,54 @@
+@use 'src/styles/vars';
+@font-face {
+  font-family: 'Harry';
+  src: url('src/assets/fonts/harryp.ttf');
+}
+
+.house-ranking {
+  background-color: vars.$color-grey;
+  color: vars.$color-white;
+  display:flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-bottom: 3em;
+  margin-left:2em;
+  margin-right:2em;
+  padding: 1em;
+  padding-bottom:3rem;
+  padding-left:1rem;
+  border-bottom:1px solid vars.$color-white;
+  z-index:0;
+  
+  .ranking-type{
+    font-family: 'Harry', sans-serif;
+    font-size:vars.$font-size-title;
+    text-transform: uppercase;
+    letter-spacing: vars.$title-letter-spacing;
+    margin: 1em auto;
+    text-align: center;
+  }
+  .ranking-container{
+    display: flex;
+    justify-content:space-evenly;
+    flex-wrap: wrap;
+    row-gap: 4em;
+    
+  }
+}
+
+@media (max-width: 942px) {
+  .hogwarts .current-points, .hogwarts .house-name {
+    font-size:1.4rem;
+  }
+
+  .hogwarts .score {
+    width: 2em;
+    height:2em;
+  }
+
+  .house-ranking .ranking-type {
+    font-size:2rem;
+  }
+}
+
+

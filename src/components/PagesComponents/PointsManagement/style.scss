@@ -1,0 +1,202 @@
+@use 'src/styles/vars';
+@font-face {
+  font-family: 'Harry';
+  src: url('src/assets/fonts/harryp.ttf');
+}
+
+.professor-interface-container {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: url('src/assets/img/forbidden-forest-hp.jpg');
+  background-size: cover;
+  background-position: center center;
+  padding-bottom:4rem;
+}
+
+.select-button{
+  margin:1em;
+  color: black;
+  border: 1px solid black;
+  background-color: white;
+  padding:1em;
+  border-radius:5px;
+}
+
+.selected{
+  color: white;
+  background-color:black;
+}
+
+.professor-interface{
+  width:85%;
+  background-color:white;
+}
+
+.professor-interface-title {
+  font-family:'Harry', sans-serif;
+  letter-spacing: vars.$title-letter-spacing;
+  font-size:vars.$font-size-title;
+  text-transform: uppercase;
+  margin-top:2em;
+  margin-bottom:2em;
+  color:vars.$color-white;
+  text-align:center;
+}
+
+.professor-interface-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin: 2em 2em;
+}
+
+.text-filter {
+  display:none;
+}
+   
+.page-student .filter {
+  margin: 0em 2em;
+}
+
+.header-filter, .filter-category {
+  display:none;
+}
+
+.filter-validation {
+  display:none;
+}
+
+@media (max-width: 942px) {
+  .professor-interface {
+    width:95%;
+  } 
+  .professor-interface-top {
+    display:none;
+  }
+
+  .show-filter .profesor-filter{
+    flex-direction: column;
+    align-items: flex-start;
+    position:fixed;
+    left:0;
+    width:100vw;
+    bottom:0;
+    height:100vh;
+    background:vars.$color-white;
+    transition: background-color 0.8s ease-out;
+    overflow-y: scroll;
+    padding-bottom:2rem;
+  }
+
+  .show-filter .professor-interface-top {
+    display:flex;
+    z-index:2;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .show-filter .header-filter {
+    font-size:1.7rem;
+    margin:0.3rem 0;
+  }
+  
+  .show-filter .header-filter, .show-filter .filter-category {
+    display:block;
+  }
+
+  .show-filter .filter-category.house {
+    margin-left:2rem;
+  }
+
+  .page-house.show-filter .filter-category.house {
+    display:none;
+  }
+
+  .show-filter .button-container {
+    display:flex;
+    flex-direction: column;
+    width:100%;
+    border-bottom:1px solid #F2F2F2;
+    margin-bottom:1rem;
+    padding-bottom:0.7rem;
+  }
+
+  .show-filter .filter-category {
+    font-size:1.2rem;
+    margin-top:1rem;
+    margin-bottom:2rem;
+  }
+
+  .show-filter .select-button {
+    margin-left:0;
+    margin-bottom:1rem;
+    margin-right:0;
+    margin-top:0;
+  }
+
+  .show-filter .form-sort, .show-filter .form-sort select {
+    width:100%;
+  }
+
+  .show-filter .form-sort-title, .show-filter .filter-title {
+    display:none;
+  }
+
+  .show-filter .filter {
+    display:flex;
+    flex-direction: column;
+    z-index:2;
+    margin-bottom:15rem;
+  }
+
+  .show-filter .filter-label {
+    font-size:1.1rem;
+    margin:0 0 2.5rem 0;
+  }
+
+  .show-filter .filter-sort {
+    width:100%;
+    border-bottom:1px solid #F2F2F2;
+    margin-bottom:1rem;
+    padding-bottom:1rem;
+  }
+
+  .show-filter .filter-validation {
+    display:block;
+    position:fixed;
+    bottom:1rem;
+    margin-top:1rem;
+    width:100%;
+    left:0;
+    padding:0 2rem;
+  }
+
+  .show-filter .filter-validation button {
+    background:vars.$color-grey;
+    color:vars.$color-white;
+    border:none;
+    height:50px;
+    border-radius:5px;
+    width:100%;
+    font-family:'Josefin sans', sans-serif;
+    font-size:1rem;
+  }
+
+  .close-filter {
+    color:vars.$color-white;
+    background:vars.$color-grey;
+    width:32px;
+    height:32px;
+    border-radius:32px;
+    text-align:center;
+    padding-top:10px;
+    position:absolute;
+    right:20px;
+    top:10px;
+    cursor: pointer;
+    font-size:1rem;
+  }
+
+}

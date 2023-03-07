@@ -1,0 +1,167 @@
+@use 'src/styles/vars';
+
+@font-face {
+  font-family: 'Tangerine';
+  src: url('../../../assets/fonts/Tangerine-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Harry';
+  src: url('../../../assets/fonts/harryp.ttf');
+}
+
+.rules {
+  background:vars.$color-grey;
+  padding-bottom:2rem;
+
+& h1 {
+  padding-top:3rem;
+  font-size:4rem;
+  margin-bottom: 5rem;
+  font-family:'Harry', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: vars.$title-letter-spacing;
+  font-size:vars.$font-size-title;
+  text-align:center;
+  color:vars.$color-white;
+}
+
+&-item {
+
+  margin-left:2rem;
+  margin-right:2rem;
+
+  &-title-left, &-title-right {
+    background:vars.$color-white;
+    color:vars.$color-grey;
+    padding:2rem;
+    font-family: 'Tangerine', sans-serif;
+    font-size:2.3rem;
+    margin-top:2rem;
+  }
+
+  &-title-right {
+    text-align:right;
+  }
+
+  &-content {
+    background:vars.$color-white;
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top:0.2rem;
+
+    &-text {
+      margin-left:5rem;
+      margin-right:5rem;
+      font-size:1.2rem;
+      font-weight:300;
+
+      & p {
+        padding-top:1rem;
+        padding-bottom:1rem;
+      }
+    }
+  }
+}
+  &-img-left {
+    padding-left:40px;
+    width:300px;
+  }
+
+  &-img-right {
+    padding-right:40px;
+    width:300px;
+  }
+}
+
+.rules-item:last-child {
+  margin-bottom:2rem;
+}
+
+.accordion > input[type="checkbox"] {
+  position: absolute;
+  left: -100vw;
+}
+
+.accordion .content {
+  overflow-y: hidden;
+  height: 0;
+  transition: opacity 2.5s ease;
+}
+
+.accordion > input[type="checkbox"]:checked ~ .content {
+  height: auto;
+  overflow: visible;
+}
+
+.accordion label {
+  display: block;
+}
+
+.content {
+  opacity:0;
+}
+
+.accordion {
+  margin-bottom: 1em;
+}
+
+.accordion > input[type="checkbox"]:checked ~ .content {
+  padding: 15px;
+  border-top: 0;
+  background:vars.$color-white;
+  margin-top:0.3rem;
+  opacity:1;
+}
+
+.accordion .handle {
+  margin: 0;
+  font-size: 1.125em;
+  line-height: 1.2em;
+}
+
+.accordion label {
+  cursor: pointer;
+  font-family: 'Tangerine', sans-serif;
+  font-size:2rem;
+  padding: 15px;
+  background:vars.$color-white;
+}
+
+.accordion label:hover,
+.accordion label:focus {
+  background:vars.$color-white;
+  opacity:0.9;
+}
+
+.accordion .handle label:before {
+  content: "›";
+  font-family:'Josefin sans', sans-serif;
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 1em;
+  line-height: 1.556em;
+  vertical-align: middle;
+}
+
+.accordion > input[type="checkbox"]:checked ~ .handle label:before {
+  content: "›";
+  transform: rotate(90deg);
+}
+
+.accordion p:last-child {
+  margin-bottom: 0;
+}
+
+
+@media (max-width: 942px) {
+  .rules-item-content {
+    flex-direction: column;
+  }
+
+  .rules-item-content-text {
+    margin-left:1rem;
+    margin-right:1rem;
+  }
+}

@@ -1,0 +1,25 @@
+@use 'src/styles/vars';
+
+.account-list-item {
+  background:vars.$color-white;
+  width:270px;
+  height:180px;
+  margin:0 2rem 0 2rem;
+  text-align:center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 5px;
+}
+
+h2 {
+  font-weight:700;
+} 
+
+
+@media (max-width: 942px) { 
+  .account-list-item {
+    margin-top:2rem;
+  } 
+}
