@@ -9,7 +9,8 @@
 }
 
 .page-not-found {
-  background:#f2f2f2;;
+  background:#f2f2f2;
+  min-height:90vh;
 }
 
 .page-not-found .navbar {
@@ -21,12 +22,13 @@
   font-family: 'Antic Slab', serif;
   text-align: center;
   font-size: 150px;
+  margin:1rem;
 }
 
 .error-text {
   font-size: 65px;
   text-align: center;
-  margin-top: 2rem;
+  margin: 2rem 1rem 1rem 1rem;
 }
 
 .error-img {

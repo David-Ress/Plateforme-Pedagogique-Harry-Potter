@@ -17,6 +17,10 @@
   margin-left:20px;
 }
 
+.footer-link:nth-child(2)::after {
+  content:"●";
+  margin-left:20px;
+}
 
 @media (max-width: 942px) {
   .footer {

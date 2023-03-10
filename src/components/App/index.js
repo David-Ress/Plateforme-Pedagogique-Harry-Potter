@@ -1,35 +1,45 @@
-// == Import
+// == Import modules
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchHouses } from '../../api/houses';
 import { fetchStudents, fetchTopStudents } from '../../api/students';
-import Lore from '../StaticPages/Lore';
-import PageNotFound from '../StaticPages/PageNotFound';
-import LegalNotice from '../StaticPages/LegalNotice';
-import Rules from '../StaticPages/Rules';
+
+// Import des composants pages qui nécéssitent des appels APIs
+import Home from '../PagesComponents/Home';
+import Login from '../PagesComponents/Login';
+import Account from '../PagesComponents/Account';
+import Password from '../PagesComponents/Password';
+import PointsManagement from '../PagesComponents/PointsManagement';
+import PointsHouse from '../PagesComponents/PointsManagement/PointsHouse';
+import PointsStudents from '../PagesComponents/PointsManagement/PointsStudents';
+import AdminInterface from '../PagesComponents/AdminInterface';
+import AdminInterfaceStudents from '../PagesComponents/AdminInterface/AdminInterfaceStudents';
+import AdminInterfaceTeachers from '../PagesComponents/AdminInterface/AdminInterfaceTeachers';
+import PointsLog from '../PagesComponents/PointsLog';
+// Import des composants pages qui sont réutilisés dans différentes pages
+import SortHouse from '../ReusableComponents/SortHouse';
+import SortStudent from '../ReusableComponents/SortStudent';
 import Footer from '../ReusableComponents/Footer';
-import Home from '../Home';
-import Login from '../Login';
-import Account from '../Account';
-import Password from '../Password';
-import PointsManagement from '../PointsManagement';
-import PointsHouse from '../PointsHouse';
-import PointsStudents from '../PointsStudents';
-import AdminInterface from '../AdminInterface';
-import AdminInterfaceStudents from '../AdminInterfaceStudents';
-import AdminInterfaceTeachers from '../AdminInterfaceTeachers';
-import SortHouse from '../SortHouse';
-import SortStudent from '../SortStudent';
-import SortUser from '../SortUser';
+import SortUser from '../ReusableComponents/SortUser';
+// Import des composants pages qui ont du contenu statique qui ne changera pas (ou presque)
+import TeamProject from '../StaticPagesComponents/TeamProject';
+import Lore from '../StaticPagesComponents/Lore';
+import PageNotFound from '../StaticPagesComponents/PageNotFound';
+import LegalNotice from '../StaticPagesComponents/LegalNotice';
+import Rules from '../StaticPagesComponents/Rules';
+import AboutPage from '../StaticPagesComponents/AboutPage';
+
+// Import des reducers
 import { sortHouseList } from '../../store/reducers/house';
-import './styles.scss';
 import { setStudentList } from '../../store/reducers/student';
 import { setAdminStudentList } from '../../store/reducers/adminStudent';
 import { setUserList } from '../../store/reducers/adminUser';
 
+import './styles.scss';
 // == Composant
 const App = () => {
+  // Appels de nos state redux avec useSelector
   const isLogged = useSelector((state) => state.user.isLogged);
   const userRole = useSelector((state) => state.user.role_id);
   const houseData = useSelector((state) => state.house.sortedList);
@@ -37,6 +47,7 @@ const App = () => {
   const studentAdminData = useSelector((state) => state.adminStudent.studentList);
   const userData = useSelector((state) => state.adminUser.userList);
   const dispatch = useDispatch();
+  // Appel API pour l'affichage sur la homepage et l'affichage des utilisateurs
   useEffect(() => {
     dispatch(fetchHouses());
     dispatch(fetchStudents());
@@ -51,6 +62,9 @@ const App = () => {
         <Route path="/login" element={isLogged ? (<Navigate replace to="/mon-compte" />) : <Login />} />
         <Route path="/histoire" element={<Lore />} />
         <Route path="/mentions-legales" element={<LegalNotice />} />
+        <Route path="/a-propos" element={<AboutPage />} />
+        <Route path="/equipe-projet" element={<TeamProject />} />
+        <Route path="/historique-des-points" element={isLogged ? <PointsLog /> : (<Navigate replace to="/" />)} />
         <Route path="/mon-compte" element={isLogged ? <Account /> : (<Navigate replace to="/" />)} />
         <Route
           path="/mon-compte/mot-de-passe"

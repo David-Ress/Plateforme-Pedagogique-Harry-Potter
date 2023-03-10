@@ -32,9 +32,7 @@ export const fetchAdminStudents = () => async (dispatch, getState) => {
         authorization: token,
       },
     });
-    // Dispatch à créer dans le reducer:
     dispatch(setAdminStudentList(data));
-    console.log(data);
   }
   catch (e) {
     console.log('Dommage, ça n\'a pas marché', e);
@@ -44,9 +42,7 @@ export const fetchAdminStudents = () => async (dispatch, getState) => {
 export const fetchTopStudents = () => async (dispatch) => {
   try {
     const { data } = await axiosInstance.get('/student/top5');
-    // Dispatch à créer dans le reducer:
     dispatch(setTopStudentList(data));
-    // console.log(data);
   }
   catch (e) {
     console.log('Dommage, ça n\'a pas marché', e);
@@ -56,18 +52,19 @@ export const fetchTopStudents = () => async (dispatch) => {
 export const addPointStudents = () => async (dispatch, getState) => {
   const state = getState();
   const { token } = state.user;
-  const { value, content, user_id } = state.addPoints;
-  const { student_id } = state.addPoints;
-
+  const { value, content, user_id, student_id } = state.addPoints;
+  console.log(content);
+  console.log(value);
   try {
     await axiosInstance.post('point/add', {
-      headers: {
-        authorization: token,
-      },
       student_id,
       value,
       content,
       user_id,
+    }, {
+      headers: {
+        authorization: token,
+      },
     })
       .then(() => {
         dispatch(sendSuccessMessage("Vos points à l'élève ont bien été ajoutés."));
@@ -87,15 +84,16 @@ export const addPointStudents = () => async (dispatch, getState) => {
 export const removePointStudents = () => async (dispatch, getState) => {
   const state = getState();
   const { token } = state.user;
-  const { value, content, user_id } = state.addPoints;
-  const { student_id } = state.addPoints;
+  const { value, content, user_id, student_id } = state.addPoints;
 
   try {
+    console.log(value);
+    console.log(content);
     await axiosInstance.post('point/remove', {
       value,
       content,
-      user_id,
       student_id,
+      user_id,
     }, {
       headers: {
         authorization: token,
@@ -113,7 +111,6 @@ export const removePointStudents = () => async (dispatch, getState) => {
   }
   catch (e) {
     console.log('Errorus Console-logus!!!', e);
-    console.log(state.addPoints);
   }
 };
 
@@ -123,7 +120,6 @@ export const addStudent = () => async (dispatch, getState) => {
   const {
     lastname, firstname, class_name, user_id, house_id, score,
   } = state.adminStudent;
-  console.log(house_id);
   try {
     await axiosInstance.post('admin/student', {
       lastname,
@@ -173,7 +169,7 @@ export const editStudent = () => async (dispatch, getState) => {
   const {
     lastname, firstname, class_name, house_id, score, target_id,
   } = state.changeStudent;
-  const { user_id } = state.user.id;
+  const user_id = state.user.id;
   try {
     await axiosInstance.patch(`admin/student/${target_id}`, {
       lastname,

@@ -4,14 +4,8 @@ import './style.scss';
 
 const HouseRanking = () => {
   const houseData = useSelector((state) => state.house.list);
-  const housePoints = houseData.map((house) => (
-    parseInt(house.houses_total_score, 10)
-  ));
 
-  const totalPoints = housePoints.reduce(
-    (accumulator, currentValue) => accumulator + currentValue,
-  );
-  console.log(housePoints);
+  const totalPoints = 2000;
   return (
     <div className="house-ranking">
       <h2 className="ranking-type">

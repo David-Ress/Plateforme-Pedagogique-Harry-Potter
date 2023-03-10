@@ -45,7 +45,6 @@ const Student = ({
   };
   const handleInputChange = (value, name) => {
     dispatch(changeContentAndValue({ key: name, value: value }));
-    console.log(selectedStudent);
   };
   const handleHouseChange = (evt) => {
     dispatch(changeHouse(evt.target.value));

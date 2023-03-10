@@ -16,13 +16,11 @@ const PointsManagement = ({
   const studentData = useSelector((state) => state.student.list);
   const dispatch = useDispatch();
   const handleShowFilter = () => {
-    console.log(showFilter);
     setShowFilter(!showFilter);
   };
 
   const handleCheckboxChange = (event) => {
     const house = event.target.value;
-    console.log(house);
     setSelectedHouses((prevSelectedHouses) => {
       if (prevSelectedHouses.includes(house)) {
         return prevSelectedHouses.filter((selectdHouse) => selectdHouse !== house);
@@ -47,6 +45,9 @@ const PointsManagement = ({
       <Navbar classColor="logo grey" classLinkColor="menu-link grey" classColorBurger="grey" />
       <div className={`professor-interface-container ${page} ${showFilter ? 'show-filter' : ''}`}>
         <h2 className="professor-interface-title">Gestion des points</h2>
+        <NavLink to="/mon-compte" className="back-account">
+          &#60; Retour à mon compte
+        </NavLink>
         <div className="professor-interface">
           <FilterMobile handleShowFilter={handleShowFilter} />
           <div className="profesor-filter">

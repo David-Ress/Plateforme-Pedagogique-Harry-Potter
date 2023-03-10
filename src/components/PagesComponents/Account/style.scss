@@ -24,6 +24,8 @@
   &-list {
     display:flex;
     margin-top:5rem;
+    flex-wrap: wrap;
+    row-gap: 3rem;
   }
 }
 

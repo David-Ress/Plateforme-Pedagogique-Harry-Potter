@@ -8,6 +8,14 @@ const Footer = () => (
   <footer className="footer">
     <Logo classColor="logo grey" />
     <div className="footer-links">
+
+      <NavLink
+        className="footer-link"
+        to="/a-propos"
+      >
+        A propos
+      </NavLink>
+
       <NavLink
         className="footer-link"
         to="/equipe-projet"

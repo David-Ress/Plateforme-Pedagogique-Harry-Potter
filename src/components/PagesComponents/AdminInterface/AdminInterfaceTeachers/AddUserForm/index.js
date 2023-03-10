@@ -34,16 +34,16 @@ const AddUserForm = () => {
       <h2> Ajouter un nouvel utilisateur</h2>
       <div className="input-fields">
         <Field
-          name="lastname"
-          placeholder="Nom"
-          onChange={handleInputChange}
-          value={lastname}
-        />
-        <Field
           name="firstname"
           placeholder="Prénom"
           onChange={handleInputChange}
           value={firstname}
+        />
+        <Field
+          name="lastname"
+          placeholder="Nom"
+          onChange={handleInputChange}
+          value={lastname}
         />
         <Field
           name="email"

@@ -164,4 +164,28 @@
     margin-left:1rem;
     margin-right:1rem;
   }
+
+  .rules-img-right {
+    margin-top:1rem;
+  }
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+}
+
+.row-header {
+  font-weight: bold;
+  text-align:center;
+}
+
+.cell {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid black;
 }

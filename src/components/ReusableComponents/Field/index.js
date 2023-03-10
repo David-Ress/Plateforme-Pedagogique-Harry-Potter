@@ -36,7 +36,7 @@ const Field = ({
 };
 
 Field.propTypes = {
-  value: PropTypes.string,
+  value: PropTypes.any,
   type: PropTypes.string,
   name: PropTypes.string,
   placeholder: PropTypes.string,

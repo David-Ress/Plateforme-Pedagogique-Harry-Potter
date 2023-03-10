@@ -1,0 +1,80 @@
+@use 'src/styles/vars';
+
+@font-face {
+  font-family: 'Harry';
+  src: url('../../../assets/fonts/harryp.ttf');
+
+}
+
+.team-project-h1 {
+  padding-top:3rem;
+  font-size:4rem;
+  margin-bottom: 5rem;
+  font-family:'Harry', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: vars.$title-letter-spacing;
+  font-size:vars.$font-size-title;
+  text-align:center;
+}
+
+.team-project-h2 {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.article-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction:row;
+  margin: 0 auto;
+  justify-content: space-around;
+  margin-top: 4rem;
+  min-height:50vh;
+}
+
+.article {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  height: 300px;
+  text-align:center;
+  margin-bottom:2rem;
+  animation-name: appear;
+  animation-duration: 3s;
+}
+
+
+@keyframes appear {
+  from {
+   opacity:0;
+  }
+  50% {
+    opacity:0.5;
+  }
+
+  to {
+   opacity:1;
+  }
+}
+
+.article-img {
+  width: 200px;
+  display: block;
+  margin: 0 auto;
+}
+
+.article-link img {
+  width:30px;
+  margin-left:0.5rem;
+  margin-right:0.5rem;
+}
+
+.article-title {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.article h2 {
+  font-style:italic;
+  margin-bottom: 1rem;
+}

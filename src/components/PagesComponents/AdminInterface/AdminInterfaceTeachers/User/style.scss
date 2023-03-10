@@ -58,3 +58,16 @@
 .change-user-recipient {
   margin-right:1rem;
 }
+
+@media (max-width: 942px) { 
+  .change-user-recipient, .change-user-recipient .point-student-cancel, .change-user-recipient .point-student-submit, .input-fields, .field-input, .input-field {
+  width:100%;
+}
+.change-user-recipient .point-student-cancel {
+  margin-left:0;
+}
+.change-user-recipient .point-student-submit, .change-user-recipient .point-student-cancel {
+  margin-top:1rem;
+}
+
+}

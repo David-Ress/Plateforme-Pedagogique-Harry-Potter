@@ -9,6 +9,7 @@ import student from '../../../assets/img/student.png';
 import house from '../../../assets/img/house.png';
 import password from '../../../assets/img/password.png';
 import user from '../../../assets/img/user.png';
+import list from '../../../assets/img/liste.png';
 
 const Account = () => {
   const dispatch = useDispatch();
@@ -26,13 +27,13 @@ const Account = () => {
       <Navbar classColor="logo grey" classLinkColor="menu-link grey" classColorBurger="grey" />
       <div className="account">
         <h1>Bienvenue sur votre compte {userName && (userName)} </h1>
-        {/* Ajouter un onclick pour la deconnexion */}
         <NavLink to="/" className="account-disconnect" onClick={handleLogout}>
           Se déconnecter
         </NavLink>
         <div className="account-list">
           <Item link="/classement/eleves" image={student} name="Les élèves" />
           <Item link="/classement/maisons" image={house} name="Les maisons" />
+          <Item link="/historique-des-points" image={list} name="Historique des points" />
           {userRole === 1 && (
           <Item link="/admin/utilisateurs" image={user} name="Gestion des utilisateurs" />
           )}

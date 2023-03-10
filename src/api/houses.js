@@ -17,27 +17,22 @@ export const fetchHouses = () => async (dispatch) => {
 export const addPointHouses = () => async (dispatch, getState) => {
   const state = getState();
   const {
-    value, content, user_id, house_id,
+    value, content, house_id, user_id,
   } = state.addPoints;
   const { token } = state.user;
 
   try {
-    await axiosInstance.post(
-      'point/add',
-      {
-        house_id,
-        value,
-        content,
-        user_id,
+    await axiosInstance.post('point/add', {
+      house_id,
+      value,
+      content,
+      user_id,
+    }, {
+      headers: {
+        authorization: token,
       },
-      {
-        headers: {
-          authorization: token,
-        },
-      },
-    )
-      .then((response) => {
-        console.log(response);
+    })
+      .then(() => {
         dispatch(sendSuccessMessage('Vos points ont bien été ajoutés.'));
         dispatch(fetchHouses());
         setTimeout(() => {
@@ -47,14 +42,13 @@ export const addPointHouses = () => async (dispatch, getState) => {
   }
   catch (e) {
     console.log('Errorus Console-logus!!!', e);
-    console.log(state.addPoints);
   }
 };
 
 export const removePointHouses = () => async (dispatch, getState) => {
   const state = getState();
   const {
-    value, content, user_id, house_id,
+    value, content, house_id, user_id,
   } = state.addPoints;
   const { token } = state.user;
 
@@ -64,6 +58,7 @@ export const removePointHouses = () => async (dispatch, getState) => {
       value,
       content,
       user_id,
+    }, {
       headers: {
         authorization: token,
       },
@@ -79,6 +74,5 @@ export const removePointHouses = () => async (dispatch, getState) => {
   }
   catch (e) {
     console.log('Errorus Console-logus!!!', e);
-    console.log(state.addPoints);
   }
 };

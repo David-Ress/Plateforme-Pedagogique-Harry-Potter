@@ -1,7 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import { filterAllStudentAdmin } from '../../../store/reducers/adminStudent';
 import Navbar from '../../ReusableComponents/Navbar';
@@ -15,13 +14,11 @@ const AdminInterface = ({
   const studentData = useSelector((state) => state.adminStudent.studentList);
   const dispatch = useDispatch();
   const handleShowFilter = () => {
-    console.log(showFilter);
     setShowFilter(!showFilter);
   };
 
   const handleCheckboxChange = (event) => {
     const house = event.target.value;
-    console.log(house);
     setSelectedHouses((prevSelectedHouses) => {
       if (prevSelectedHouses.includes(house)) {
         return prevSelectedHouses.filter((selectdHouse) => selectdHouse !== house);
@@ -42,6 +39,9 @@ const AdminInterface = ({
       <Navbar classColor="logo grey" classLinkColor="menu-link grey" classColorBurger="grey" />
       <div className={`professor-interface-container ${page} ${showFilter ? 'show-filter' : ''}`}>
         <h2 className="professor-interface-title">Interface administrateur</h2>
+        <NavLink to="/mon-compte" className="back-account">
+          &#60; Retour à mon compte
+        </NavLink>
         <div className="professor-interface">
           <FilterMobile handleShowFilter={handleShowFilter} />
           <div className="profesor-filter">

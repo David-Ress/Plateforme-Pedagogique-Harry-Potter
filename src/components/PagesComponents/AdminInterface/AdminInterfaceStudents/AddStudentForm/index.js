@@ -35,15 +35,15 @@ const AddStudentForm = () => {
       <h2> Ajouter un nouvel élève</h2>
       <div className="input-fields">
         <Field
-          name="lastname"
-          placeholder="Nom"
-          value={lastname}
-          onChange={handleInputChange}
-        />
-        <Field
           name="firstname"
           placeholder="Prénom"
           value={firstname}
+          onChange={handleInputChange}
+        />
+        <Field
+          name="lastname"
+          placeholder="Nom"
+          value={lastname}
           onChange={handleInputChange}
         />
         <Field

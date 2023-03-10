@@ -5,7 +5,6 @@ import LogoSlytherin from 'src/assets/img/blason-serpentard.png';
 import LogoHufflepuff from 'src/assets/img/blason-poufsouffle.png';
 import LogoRavenclaw from 'src/assets/img/blason-serdaigle.png';
 import Student from './Student';
-// import studentData from '../../../db/students.json';
 import './style.scss';
 
 const WizardRanking = () => {

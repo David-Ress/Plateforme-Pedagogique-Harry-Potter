@@ -40,9 +40,10 @@
   font-size:vars.$font-size-title;
   text-transform: uppercase;
   margin-top:2em;
-  margin-bottom:2em;
   color:vars.$color-white;
   text-align:center;
+  margin-left:0.3rem;
+  margin-right:0.3rem;
 }
 
 .professor-interface-top{
@@ -67,6 +68,13 @@
 .filter-validation {
   display:none;
 }
+
+.select-menu {
+  margin-right: 1em;
+  height:45px;
+  width:245px;
+}
+
 
 @media (max-width: 942px) {
   .professor-interface {
@@ -199,4 +207,11 @@
     font-size:1rem;
   }
 
+  .points-management-recipient .field-input {
+    width:100%;
+  }
+
+  .select-menu {
+    width:100%;
+  }
 }

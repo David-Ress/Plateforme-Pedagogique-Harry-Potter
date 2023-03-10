@@ -9,7 +9,8 @@ import { SuccessMessage } from '../store/reducers/changeUserInfo';
 // eslint-disable-next-line import/prefer-default-export
 export const login = () => async (dispatch, getState) => {
   const state = getState();
-  const { email, password } = state.user;
+  const { password } = state.user;
+  const email = state.user.email.toLowerCase();
 
   try {
     await axiosInstance.post('auth', {
@@ -106,7 +107,6 @@ export const changePassword = () => async (dispatch, getState) => {
     id, oldPassword, newPassword, confirmation,
   } = state.user;
   const password = newPassword;
-  console.log(confirmation);
 
   try {
     await axiosInstance.patch(`user/${id}`, {
@@ -164,11 +164,8 @@ export const changeUserPassword = () => async (dispatch, getState) => {
   const {
     id, password,
   } = state.changeUserInfo;
-  console.log(id);
-
   try {
     await axiosInstance.patch(`admin/user/password/${id}`, {
-      id,
       password,
     }, {
       headers: {

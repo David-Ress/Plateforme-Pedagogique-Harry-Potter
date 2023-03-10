@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
 import {
   changeContentAndValue, changeUser, selectStudent, resetForm,
 } from '../../../../../store/reducers/addPoints';
@@ -14,6 +15,7 @@ const Student = ({
   const content = useSelector((state) => state.addPoints.content);
   const valueContent = useSelector((state) => state.addPoints.value);
   const user_id = useSelector((state) => state.user.id);
+  const [isCustom, setIsCustom] = useState(false);
   const dispatch = useDispatch();
 
   const manageAddPoint = () => {
@@ -40,7 +42,18 @@ const Student = ({
   const handleInputChange = (value, name) => {
     dispatch(selectStudent(id));
     dispatch(changeUser(user_id));
-    dispatch(changeContentAndValue({ key: name, value: value }));
+    if (name === 'content' && value === 'Autre') {
+      dispatch(changeContentAndValue({ key: name, value }));
+      dispatch(changeContentAndValue({ key: 'content', value: null }));
+      setIsCustom(true);
+    }
+    else if (name === 'value' && isCustom) {
+      dispatch(changeContentAndValue({ key: name, value }));
+    }
+    else {
+      setIsCustom(false);
+      dispatch(changeContentAndValue({ key: name, value }));
+    }
   };
 
   return (
@@ -62,13 +75,32 @@ const Student = ({
           <div className="point-student-footer-manage">
             <span className="point-student-footer-text">Ajouter des points</span>
             <form className="point-student-add" onSubmit={handleAddPoint}>
-              <Field
-                name="content"
-                placeholder="Motif"
-                type="text"
-                onChange={handleInputChange}
+              <select
+                className="select-menu"
                 value={content}
-              />
+                onChange={(e) => handleInputChange(e.target.value, 'content')}
+              >
+                <option value="">Selectionez une raison:</option>
+                <option value="Réajustement">Réajustement</option>
+                <option value="Je participe activement">Je participe activement</option>
+                <option value="J’aide un camarade qui en a besoin (tutorat)">J’aide un camarade qui en a besoin (tutorat)</option>
+                <option value="J’ai fais mes devoirs sérieusement">J’ai fait mes devoirs sérieusement</option>
+                <option value="Je suis fair-play ">Je suis fair-play </option>
+                <option value="Je travaille en autonomie calmement">Je travaille en autonomie calmement</option>
+                <option value="Je passe un niveau sur Pix ">Je passe un niveau sur Pix </option>
+                <option value="Je règle une situation de conflit sans l’intervention d’un adulte "> Je règle une situation de conflit sans l’intervention d’un adulte </option>
+                <option value="Je travaille en groupe de manière efficace et calme ">Je travaille en groupe de manière efficace et calme </option>
+                <option value="Autre">Autre...</option>
+              </select>
+              {isCustom ? (
+                <Field
+                  name="content"
+                  placeholder="Motif"
+                  type="text"
+                  onChange={(value) => dispatch(changeContentAndValue({ key: 'content', value }))}
+                  value={content}
+                />
+              ) : null}
 
               <Field
                 name="value"
@@ -104,13 +136,33 @@ const Student = ({
         <div className="point-student-footer-manage">
           <span className="point-student-footer-text">Enlever des points</span>
           <form className="point-student-delete" onSubmit={handleRemovePoint}>
-            <Field
-              name="content"
-              placeholder="Motif"
-              type="text"
-              onChange={handleInputChange}
+            <select
+              className="select-menu"
               value={content}
-            />
+              onChange={(e) => handleInputChange(e.target.value, 'content')}
+            >
+              <option value="Aucune raison selectionnée">Selectionez une raison:</option>
+              <option value="Réajustement">Réajustement</option>
+              <option value="Je bavarde">Je bavarde</option>
+              <option value="J’oublie mon matériel">J’oublie mon matériel</option>
+              <option value="Je n’ai pas fait mes devoirs">Je n’ai pas fait mes devoirs</option>
+              <option value="Je me déplace sans autorisation">Je me déplace sans autorisation</option>
+              <option value="Je suis en retard sans justification ">Je suis en retard sans justification </option>
+              <option value="Je suis agité dans les couloirs / en entrant en classe">Je suis agité dans les couloirs / en entrant en classe</option>
+              <option value="Je laisse des papiers par terre / Je dégrade le matériel de l’établissement ">Je laisse des papiers par terre / Je dégrade le matériel de l’établissement </option>
+              <option value="J’oublie de rendre à temps un livre du CDI"> J’oublie de rendre à temps un livre du CDI </option>
+              <option value="Je suis exclu de la classe.">Je suis exclu de la classe. </option>
+              <option value="Autre">Autre...</option>
+            </select>
+            {isCustom ? (
+              <Field
+                name="content"
+                placeholder="Motif"
+                type="text"
+                onChange={(value) => dispatch(changeContentAndValue({ key: 'content', value }))}
+                value={content}
+              />
+            ) : null}
 
             <Field
               name="value"

@@ -10,7 +10,6 @@ export const initialState = {
   score: 'Score',
   studentList: [],
   target_id: null,
-  filterStudentAdmin: [],
 };
 
 export const changeContentAndValue = createAction('adminStudent/changeContentAndValue');

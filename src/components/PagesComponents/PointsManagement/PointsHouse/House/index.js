@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Helmet } from 'react-helmet';
 import { addPointHouses, removePointHouses } from '../../../../../api/houses';
 import Field from '../../../../ReusableComponents/Field';
 import {
   changeContentAndValue, changeUser, selectHouse, resetForm,
 } from '../../../../../store/reducers/addPoints';
 import './style.scss';
-import { Helmet } from 'react-helmet';
 
 const House = ({
   houseName, houses_total_score, id, toggleAddPoint, showAdd, toggleDeletePoint, showDelete,
@@ -18,6 +18,7 @@ const House = ({
   const dispatch = useDispatch();
 
   const [shouldRender, setShouldRender] = useState(true);
+  const [isCustom, setIsCustom] = useState(false);
 
   const manageAddPoint = () => {
     toggleAddPoint(id);
@@ -45,19 +46,29 @@ const House = ({
   const handleInputChange = (value, name) => {
     dispatch(selectHouse(id));
     dispatch(changeUser(user_id));
-    dispatch(changeContentAndValue({ key: name, value: value }));
+    if (name === 'content' && value === 'Autre') {
+      dispatch(changeContentAndValue({ key: name, value }));
+      dispatch(changeContentAndValue({ key: 'content', value: null }));
+      setIsCustom(true);
+    }
+    else if (name === 'value' && isCustom) {
+      dispatch(changeContentAndValue({ key: name, value }));
+    }
+    else {
+      setIsCustom(false);
+      dispatch(changeContentAndValue({ key: name, value }));
+    }
   };
 
   return (
     <div className="point-house">
       <Helmet>
-        gestion des points des maisons
+        Gestion des points des maisons
       </Helmet>
       <div className="point-student-header">
         <div className="house-header-info">
           <span className="house-point-name">Maison {houseName} </span>
           <span className="house-point-points">{houses_total_score} points </span>
-          {/* <span className="house-rank">Position {rank} </span> */}
         </div>
         <div className="point-house-manage">
           <div className="add" onClick={manageAddPoint}>+</div>
@@ -70,13 +81,24 @@ const House = ({
           <div className="point-house-footer-manage">
             <span className="point-house-footer-text">Ajouter des points</span>
             <form className="point-house-add" onSubmit={handleAddPoint}>
-              <Field
-                name="content"
-                placeholder="Motif"
-                type="text"
-                onChange={handleInputChange}
+              <select
+                className="select-menu"
                 value={content}
-              />
+                onChange={(e) => handleInputChange(e.target.value, 'content')}
+              >
+                <option value="">Selectionez une raison:</option>
+                <option value="Réajustement">Réajustement</option>
+                <option value="Autre">Autre...</option>
+              </select>
+              {isCustom ? (
+                <Field
+                  name="content"
+                  placeholder="Motif"
+                  type="text"
+                  onChange={(value) => dispatch(changeContentAndValue({ key: 'content', value }))}
+                  value={content}
+                />
+              ) : null}
 
               <Field
                 name="value"
@@ -112,13 +134,24 @@ const House = ({
         <div className="point-house-footer-manage">
           <span className="point-house-footer-text">Enlever des points</span>
           <form className="point-house-delete" onSubmit={handleRemovePoint}>
-            <Field
-              name="content"
-              placeholder="Motif"
-              type="text"
-              onChange={handleInputChange}
+            <select
+              className="select-menu"
               value={content}
-            />
+              onChange={(e) => handleInputChange(e.target.value, 'content')}
+            >
+              <option value="">Selectionez une raison:</option>
+              <option value="Réajustement">Réajustement</option>
+              <option value="Autre">Autre...</option>
+            </select>
+            {isCustom ? (
+              <Field
+                name="content"
+                placeholder="Motif"
+                type="text"
+                onChange={(value) => dispatch(changeContentAndValue({ key: 'content', value }))}
+                value={content}
+              />
+            ) : null}
 
             <Field
               name="value"

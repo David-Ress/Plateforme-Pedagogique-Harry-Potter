@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { changeNewPassword, resetForm } from '../../../store/reducers/user';
 import { changePassword } from '../../../api/users';
 import Navbar from '../../ReusableComponents/Navbar';
@@ -28,6 +29,9 @@ const Password = () => {
       <div className="password-form">
         <form autoComplete="off" className="login-form-element" onSubmit={handleChangePassword}>
           <h1> Modification du mot de passe</h1>
+          <NavLink to="/mon-compte" className="back-account">
+            &#60; Retour à mon compte
+          </NavLink>
           <Field
             name="oldPassword"
             type="password"

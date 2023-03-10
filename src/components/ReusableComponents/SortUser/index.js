@@ -8,10 +8,11 @@ const SortUser = ({
   setArray,
 }) => {
   const dispatch = useDispatch();
+  console.log(userArray);
   const sortArray = (selectEvent) => {
     const options = {
-      'a-z': [...userArray].sort((a, b) => (a.firstname < b.firstname ? -1 : 1)),
-      'z-a': [...userArray].sort((a, b) => (a.firstname < b.firstname ? 1 : -1)),
+      'a-z': [...userArray].sort((a, b) => (a.firstname.toLowerCase() < b.firstname.toLowerCase() ? -1 : 1)),
+      'z-a': [...userArray].sort((a, b) => (a.firstname.toLowerCase() < b.firstname.toLowerCase() ? 1 : -1)),
     };
     dispatch(setArray(options[selectEvent.target.value]));
   };

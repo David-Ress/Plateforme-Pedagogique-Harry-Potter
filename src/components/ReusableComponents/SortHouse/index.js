@@ -18,7 +18,6 @@ const SortHouse = ({
       '1-9': [...houseArray].sort((a, b) => (Number(a.houses_total_score) < Number(b.houses_total_score) ? -1 : 1)),
       '9-1': [...houseArray].sort((a, b) => (Number(a.houses_total_score) < Number(b.houses_total_score) ? 1 : -1)),
     };
-    console.log(houseArray);
     dispatch(setArray(options[selectEvent.target.value]));
   };
   return (

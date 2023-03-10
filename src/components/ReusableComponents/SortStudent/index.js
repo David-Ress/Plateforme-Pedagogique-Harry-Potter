@@ -10,12 +10,11 @@ const SortStudent = ({
   const dispatch = useDispatch();
   const sortArray = (selectEvent) => {
     const options = {
-      'a-z': [...studentArray].sort((a, b) => (a.firstname < b.firstname ? -1 : 1)),
-      'z-a': [...studentArray].sort((a, b) => (a.firstname < b.firstname ? 1 : -1)),
+      'a-z': [...studentArray].sort((a, b) => (a.firstname.toLowerCase() < b.firstname.toLowerCase() ? -1 : 1)),
+      'z-a': [...studentArray].sort((a, b) => (a.firstname.toLowerCase() < b.firstname.toLowerCase() ? 1 : -1)),
       '1-9': [...studentArray].sort((a, b) => (Number(a.student_total_score) < Number(b.student_total_score) ? -1 : 1)),
       '9-1': [...studentArray].sort((a, b) => (Number(a.student_total_score) < Number(b.student_total_score) ? 1 : -1)),
     };
-    console.log(studentArray);
     dispatch(setArray(options[selectEvent.target.value]));
   };
   return (

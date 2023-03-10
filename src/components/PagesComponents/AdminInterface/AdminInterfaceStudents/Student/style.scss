@@ -64,6 +64,11 @@
     width:100%;
   }
 
+  .point-student-add, .point-student-delete {
+    margin-left: 0rem;
+    margin-top:1rem;
+  }
+
 }
 
 @media (max-width: 942px) { 
@@ -81,4 +86,11 @@
     width:100%;
     margin-bottom:1rem;
   }
+
+  .points-management-recipient .field-input {
+    width:100%;
+  }
 }
+
+
+  
