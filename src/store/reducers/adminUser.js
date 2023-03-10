@@ -40,6 +40,7 @@ const adminUserReducer = createReducer(initialState, (builder) => {
       state.firstname = '';
       state.lastname = '';
       state.password = '';
+      state.email = '';
       state.role_id = 2;
     })
     .addCase(changeTargetId, (state, action) => {

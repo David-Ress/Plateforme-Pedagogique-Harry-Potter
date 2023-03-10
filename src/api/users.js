@@ -74,6 +74,10 @@ export const addUser = () => async (dispatch, getState) => {
       },
     });
     dispatch(fetchUsers());
+    dispatch(SuccessMessage("L'utilisateur a bien été ajouté"));
+    setTimeout(() => {
+      dispatch(SuccessMessage());
+    }, 5000);
   }
   catch (e) {
     console.log(e);
@@ -94,6 +98,10 @@ export const deleteUser = () => async (dispatch, getState) => {
       },
     });
     dispatch(fetchUsers());
+    dispatch(SuccessMessage("L'utilisateur a bien été supprimé"));
+    setTimeout(() => {
+      dispatch(SuccessMessage());
+    }, 5000);
   }
   catch (e) {
     console.log(e);

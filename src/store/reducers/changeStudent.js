@@ -8,10 +8,12 @@ export const initialState = {
   house_id: null,
   score: 0,
   target_id: null,
+  successMessage: null,
 };
 
 export const changeContentAndValue = createAction('changeStudent/changeContentAndValue');
 export const changeHouse = createAction('changeStudent/changeHouse');
+export const SuccessMessage = createAction('changeStudent/SuccessMessage');
 
 const changeStudentReducer = createReducer(initialState, (builder) => {
   builder
@@ -20,6 +22,10 @@ const changeStudentReducer = createReducer(initialState, (builder) => {
     })
     .addCase(changeHouse, (state, action) => {
       state.house_id = action.payload;
+    })
+
+    .addCase(SuccessMessage, (state, action) => {
+      state.successMessage = action.payload;
     });
 });
 

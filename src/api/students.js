@@ -3,7 +3,9 @@
 import { axiosInstance } from './index';
 import { setStudentList, setTopStudentList } from '../store/reducers/student';
 import { setAdminStudentList } from '../store/reducers/adminStudent';
+import { fetchHouses } from './houses';
 import { sendSuccessMessage } from '../store/reducers/addPoints';
+import { SuccessMessage } from '../store/reducers/changeStudent';
 
 // eslint-disable-next-line import/prefer-default-export
 export const fetchStudents = () => async (dispatch, getState) => {
@@ -52,7 +54,9 @@ export const fetchTopStudents = () => async (dispatch) => {
 export const addPointStudents = () => async (dispatch, getState) => {
   const state = getState();
   const { token } = state.user;
-  const { value, content, user_id, student_id } = state.addPoints;
+  const {
+    value, content, user_id, student_id,
+  } = state.addPoints;
   console.log(content);
   console.log(value);
   try {
@@ -69,6 +73,7 @@ export const addPointStudents = () => async (dispatch, getState) => {
       .then(() => {
         dispatch(sendSuccessMessage("Vos points à l'élève ont bien été ajoutés."));
         dispatch(fetchStudents());
+        dispatch(fetchHouses());
         dispatch(fetchAdminStudents());
         dispatch(fetchTopStudents());
         setTimeout(() => {
@@ -84,7 +89,9 @@ export const addPointStudents = () => async (dispatch, getState) => {
 export const removePointStudents = () => async (dispatch, getState) => {
   const state = getState();
   const { token } = state.user;
-  const { value, content, user_id, student_id } = state.addPoints;
+  const {
+    value, content, user_id, student_id,
+  } = state.addPoints;
 
   try {
     console.log(value);
@@ -102,6 +109,7 @@ export const removePointStudents = () => async (dispatch, getState) => {
       .then(() => {
         dispatch(sendSuccessMessage("Vos points à l'élève ont bien été enlevés."));
         dispatch(fetchStudents());
+        dispatch(fetchHouses());
         dispatch(fetchAdminStudents());
         dispatch(fetchTopStudents());
         setTimeout(() => {
@@ -136,6 +144,10 @@ export const addStudent = () => async (dispatch, getState) => {
     dispatch(fetchAdminStudents());
     dispatch(fetchStudents());
     dispatch(fetchTopStudents());
+    dispatch(sendSuccessMessage("L'élève a bien été ajouté."));
+    setTimeout(() => {
+      dispatch(sendSuccessMessage());
+    }, 5000);
   }
   catch (e) {
     console.log(e);
@@ -154,9 +166,13 @@ export const deleteStudent = () => async (dispatch, getState) => {
         authorization: token,
       },
     });
+    dispatch(sendSuccessMessage("L'élève a bien été supprimé."));
     dispatch(fetchAdminStudents());
     dispatch(fetchStudents());
     dispatch(fetchTopStudents());
+    setTimeout(() => {
+      dispatch(sendSuccessMessage());
+    }, 5000);
   }
   catch (e) {
     console.log(e);
@@ -185,6 +201,7 @@ export const editStudent = () => async (dispatch, getState) => {
     });
     dispatch(fetchAdminStudents());
     dispatch(fetchStudents());
+    dispatch(SuccessMessage("Les informations de l'utilisateur ont bien été modifiées."));
     dispatch(fetchTopStudents());
   }
   catch (e) {
