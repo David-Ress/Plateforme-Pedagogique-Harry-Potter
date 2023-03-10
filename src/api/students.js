@@ -61,14 +61,13 @@ export const addPointStudents = () => async (dispatch, getState) => {
 
   try {
     await axiosInstance.post('point/add', {
+      headers: {
+        authorization: token,
+      },
       student_id,
       value,
       content,
       user_id,
-    }, {
-      headers: {
-        authorization: token,
-      },
     })
       .then(() => {
         dispatch(sendSuccessMessage("Vos points à l'élève ont bien été ajoutés."));
