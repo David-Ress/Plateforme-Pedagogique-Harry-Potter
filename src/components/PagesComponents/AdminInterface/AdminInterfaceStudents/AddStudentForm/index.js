@@ -12,7 +12,7 @@ const AddStudentForm = () => {
   const lastname = useSelector((state) => state.adminStudent.lastname);
   const firstname = useSelector((state) => state.adminStudent.firstname);
   const class_name = useSelector((state) => state.adminStudent.class_name);
-  const score = useSelector((state) => state.adminStudent.score);
+  let score = useSelector((state) => state.adminStudent.score);
   const user_id = useSelector((state) => state.user.id);
 
   const handleInputChange = (value, name) => {
@@ -26,6 +26,9 @@ const AddStudentForm = () => {
 
   const handleAddStudent = (evt) => {
     evt.preventDefault();
+    if (score === '') {
+      score = 0;
+    }
     dispatch(addStudent());
     dispatch(resetForm());
   };
@@ -56,6 +59,7 @@ const AddStudentForm = () => {
           name="score"
           placeholder="Score"
           value={score}
+          type="number"
           onChange={handleInputChange}
         />
         <label htmlFor="house">Maison:

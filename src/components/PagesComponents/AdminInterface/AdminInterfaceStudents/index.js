@@ -11,6 +11,7 @@ import { changeSearchStudent } from '../../../../store/reducers/student';
 const AdminInterfaceStudents = () => {
   const studentData = useSelector((state) => state.adminStudent.filterStudentAdmin);
   const searchStudent = useSelector((state) => state.student.searchStudent);
+  const successMessage = useSelector((state) => state.addPoints.successMessage);
 
   const [activeStudentId, setActiveStudentId] = useState(null);
 
@@ -44,6 +45,11 @@ const AdminInterfaceStudents = () => {
   return (
     <div className="points-management-recipient">
       <AddStudentForm />
+      {successMessage && (
+        <div className="success-message">
+          {successMessage}
+        </div>
+      )}
       <SearchBar name="searchStudent" value={searchStudent} onChange={handleInputStudentChange} />
       {filteredStudents.map((student) => (
         <Student

@@ -7,7 +7,7 @@ export const initialState = {
   class_name: '',
   house_id: 2,
   user_id: null,
-  score: 'Score',
+  score: '',
   studentList: [],
   target_id: null,
 };
