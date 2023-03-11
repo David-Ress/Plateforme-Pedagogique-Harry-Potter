@@ -60,7 +60,7 @@
 }
 
 @media (max-width: 942px) { 
-  .change-user-recipient, .change-user-recipient .point-student-cancel, .change-user-recipient .point-student-submit, .input-fields, .field-input, .input-field {
+  .change-user-recipient, .change-user-recipient .point-student-cancel, .change-user-recipient .point-student-submit, .input-fields, .field-input {
   width:100%;
 }
 .change-user-recipient .point-student-cancel {
@@ -68,6 +68,10 @@
 }
 .change-user-recipient .point-student-submit, .change-user-recipient .point-student-cancel {
   margin-top:1rem;
+}
+
+.select-menu {
+  margin-right: 0em;
 }
 
 }

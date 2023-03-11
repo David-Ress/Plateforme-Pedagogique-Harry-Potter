@@ -28,10 +28,24 @@
   }
   
   .footer-links {
-    margin-top:15px;
+    margin-top:35px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap:1rem;
+  }
+
+  .footer-links a {
+    font-size:1.1rem;
   }
 
   .footer-link:last-child {
     margin-right:0;
+  }
+
+  .footer-link:first-child::after, .footer-link:nth-child(2)::after  {
+    content:"";
+    margin-left:0;
+
   }
 }
