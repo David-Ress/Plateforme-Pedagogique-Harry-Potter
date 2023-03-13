@@ -10,7 +10,6 @@ export const fetchPoints = () => async (dispatch, getState) => {
         authorization: token,
       },
     });
-    console.log(data);
     dispatch(updateLogPoints(data));
   }
   catch (e) {

@@ -64,7 +64,6 @@ export const removePointHouses = () => async (dispatch, getState) => {
       },
     })
       .then((response) => {
-        console.log(response);
         dispatch(sendSuccessMessage('Vos points ont bien été enlevés.'));
         dispatch(fetchHouses());
         setTimeout(() => {

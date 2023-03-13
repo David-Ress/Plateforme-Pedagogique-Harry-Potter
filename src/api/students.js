@@ -94,8 +94,6 @@ export const removePointStudents = () => async (dispatch, getState) => {
   } = state.addPoints;
 
   try {
-    console.log(value);
-    console.log(content);
     await axiosInstance.post('point/remove', {
       value,
       content,
