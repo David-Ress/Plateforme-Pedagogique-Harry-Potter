@@ -27,7 +27,7 @@ const SortHouse = ({
         <option value="a-z">De A à Z</option>
         <option value="z-a">De Z à A</option>
         <option value="1-9">Score croissant </option>
-        <option value="9-1">Scrore décroissant</option>
+        <option value="9-1">Score décroissant</option>
       </select>
     </form>
   );

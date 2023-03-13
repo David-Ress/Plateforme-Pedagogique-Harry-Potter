@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet';
+import Winner from '../../ReusableComponents/Header/Winner';
 import Header from '../../ReusableComponents/Header';
 import WizardRanking from './WizardRanking';
 import HouseRanking from './HouseRanking';
@@ -9,7 +10,7 @@ const Home = () => (
       <meta charSet="utf-8" />
       <title>Accueil</title>
     </Helmet>
-    <Header />
+    <Header component={<Winner />} />
     <HouseRanking />
     <WizardRanking />
   </div>

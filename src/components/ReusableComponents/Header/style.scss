@@ -1,14 +1,117 @@
+@use 'src/styles/vars';
+
+@font-face {
+  font-family: 'Harry';
+  src: url('src/assets/fonts/harryp.ttf');
+}
+
+@font-face {
+  font-family: 'Tangerine';
+  src: url('src/assets/fonts/Tangerine-Regular.ttf');
+}
+
+
 .header {
   background: url('../../../assets/img/image-header-hp.jpg');
   background-size: cover;
   background-position: center center;
-  height:50vh;
+  height:60vh;
+}
+
+
+.winner-cup {
+  background:#ffffff21;
+  color:vars.$color-white;
+  padding:1rem;
+  font-size:2rem;
+  text-align:center;
+  font-weight:200;
+  width:70%;
+  margin:8rem auto;
+}
+
+.emoji {
+  font-size:3rem;
+}
+
+.text-bold {
+  font-weight:700;
+}
+
+.animation {
+  height:80px;
+  overflow:hidden;
+  margin-top:1rem;
+  font-family:'Harry', sans-serif;
+  font-size:3rem;
+}
+
+.animation > div > div {
+  padding: 0.4rem 2.75rem;
+  height:3.5rem;
+  margin-bottom: 2.81rem;
+  display:inline-block;
+}
+
+.animation div:first-child {
+  animation: text-animation 8s infinite;
+}
+
+.first div {
+  background-color:#83040b;
+}
+.second div {
+  background-color:#22592f;
+}
+.third div {
+  background-color:#062776;
+}
+.fourth div {
+  background-color:#dab130;
+}
+
+@keyframes text-animation {
+  0% {margin-top: 0;}
+  8% {margin-top: 0;}
+
+  16% {margin-top: -5.62rem;}
+  24% {margin-top: -5.62rem;}
+
+  32% {margin-top: -11.44rem;}
+  40% {margin-top: -11.44rem;}
+  
+  48% {margin-top: -17.4rem;}
+  56% {margin-top: -17.4rem;}
+
+  64% {margin-top: -11.44rem;}
+  72% {margin-top: -11.44rem;}
+
+  80% {margin-top: -5.62rem;}
+  88% {margin-top: -5.62rem;}
+
+  96% {margin-top: 0;}
+  100% {margin-top: 0;}
 }
 
 
 @media (max-width: 942px) {
   .header {
-    height:50vh;
+    height:55vh;
   }
+
+  .winner-cup {
+    margin: 2rem auto;
+    font-size:23px;
+    width:90%;
+  }
+
+  .animation {
+    font-size:2.4rem;
+  }
+
+  .animation > div > div {
+   padding-top:0.4rem;
+  }
+
 }
 

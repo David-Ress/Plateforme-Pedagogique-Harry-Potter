@@ -12,7 +12,7 @@ const LegalNotice = () => (
     <h3>Propriété intellectuelle</h3>
 
     <p>
-      (url) est un site Internet pedagogique sur le thème <span>Harry Potter</span> à but non lucratif, édité par
+      https://coupe-des-4-maisons-beta.netlify.app/ est un site Internet pédagogique sur le thème <span>Harry Potter</span> à but non lucratif, édité par
       les étudiants de la formation o'clock. Il n’est en aucun cas affilié à <span>J.K. Rowling</span>,<span>Scholastic</span>,<span> Bloomsbury</span>,<span>Gallimard</span> ou <span>Time Warner Entertainment</span>.
     </p>
     <p>
