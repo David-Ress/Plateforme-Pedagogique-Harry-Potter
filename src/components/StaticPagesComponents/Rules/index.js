@@ -189,18 +189,9 @@ const Rules = () => (
             <img className="rules-img-left" src={rule3} alt="Regle n°3" />
             <div className="rules-item-content-text">
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec egestas, ipsum quis condimentum blandit,
-                urna quam iaculis dolor, nec laoreet lacus ex nec augue. Maecenas placerat purus varius augue lobortis elementum.
-                Praesent dignissim magna a mauris pharetra varius
+                Cette partie n'est pas encore finie, plus de nouvelles bientôt!
               </p>
 
-              <p />
-
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec egestas, ipsum quis condimentum blandit,
-                urna quam iaculis dolor, nec laoreet lacus ex nec augue. Maecenas placerat purus varius augue lobortis elementum.
-                Praesent dignissim magna a mauris pharetra varius
-              </p>
             </div>
           </div>
         </section>
@@ -300,22 +291,9 @@ const Rules = () => (
           <div className="content rules-item-content">
             <div className="rules-item-content-text">
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec egestas, ipsum quis condimentum blandit,
-                urna quam iaculis dolor, nec laoreet lacus ex nec augue. Maecenas placerat purus varius augue lobortis elementum.
-                Praesent dignissim magna a mauris pharetra varius
+                Cette partie n'est pas encore finie, plus de nouvelles bientôt!
               </p>
 
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec egestas, ipsum quis condimentum blandit,
-                urna quam iaculis dolor, nec laoreet lacus ex nec augue. Maecenas placerat purus varius augue lobortis elementum.
-                Praesent dignissim magna a mauris pharetra varius
-              </p>
-
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec egestas, ipsum quis condimentum blandit,
-                urna quam iaculis dolor, nec laoreet lacus ex nec augue. Maecenas placerat purus varius augue lobortis elementum.
-                Praesent dignissim magna a mauris pharetra varius
-              </p>
             </div>
             <img className="rules-img-right" src={rule6} alt="Regle n°6" />
           </div>
