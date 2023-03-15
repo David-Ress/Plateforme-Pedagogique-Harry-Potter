@@ -286,7 +286,7 @@ const Rules = () => (
         <section className="accordion">
           <input type="checkbox" name="collapse" id="handle6" />
           <h2 className="handle">
-            <label htmlFor="handle6">6. Mon aventure</label>
+            <label htmlFor="handle6">6. Historique de la coupe</label>
           </h2>
           <div className="content rules-item-content">
             <div className="rules-item-content-text">
