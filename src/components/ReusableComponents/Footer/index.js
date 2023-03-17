@@ -20,7 +20,7 @@ const Footer = () => (
         className="footer-link"
         to="/equipe-projet"
       >
-        Equipe projet
+        Equipe technique
       </NavLink>
 
       <NavLink

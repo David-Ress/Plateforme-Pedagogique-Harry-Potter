@@ -12,11 +12,11 @@ import './style.scss';
 const TeamProject = () => (
   <div>
     <Helmet>
-      <title>Equipe projet</title>
+      <title>Equipe technique</title>
     </Helmet>
     <Header />
     <h1 className="team-project-h1">
-      Equipe projet
+      Equipe technique
     </h1>
     <h2 className="team-project-h2">
       Ce projet a été réalisé avec ♥ par :
