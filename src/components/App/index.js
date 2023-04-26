@@ -20,8 +20,8 @@ import PointsLog from '../PagesComponents/PointsLog';
 // Import des composants pages qui sont réutilisés dans différentes pages
 import SortHouse from '../ReusableComponents/SortHouse';
 import SortStudent from '../ReusableComponents/SortStudent';
-import Footer from '../ReusableComponents/Footer';
 import SortUser from '../ReusableComponents/SortUser';
+import Footer from '../ReusableComponents/Footer';
 // Import des composants pages qui ont du contenu statique qui ne changera pas (ou presque)
 import TeamProject from '../StaticPagesComponents/TeamProject';
 import Lore from '../StaticPagesComponents/Lore';

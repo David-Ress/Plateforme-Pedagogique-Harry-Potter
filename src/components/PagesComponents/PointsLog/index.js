@@ -28,13 +28,7 @@ const PointsLog = () => {
         </NavLink>
         <div className="professor-interface">
           <div className="profesor-filter">
-            <div className="professor-interface-top">
-              {/* <div className="button-container">
-                <NavLink to="/historique-des-points" type="button" className="select-button selected active">Elèves et maisons</NavLink>
-                <NavLink to="/historique-des-points/eleves" type="button" className="select-button">Historique élèves</NavLink>
-                <NavLink to="/historique-des-points/maisons" type="button" className="select-button">Historique maisons</NavLink>
-              </div> */}
-            </div>
+            <div className="professor-interface-top" />
           </div>
           <section className="log-container">
             <article className="log-item">

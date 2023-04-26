@@ -142,6 +142,7 @@ export const addStudent = () => async (dispatch, getState) => {
     dispatch(fetchAdminStudents());
     dispatch(fetchStudents());
     dispatch(fetchTopStudents());
+    dispatch(fetchHouses());
     dispatch(sendSuccessMessage("L'élève a bien été ajouté."));
     setTimeout(() => {
       dispatch(sendSuccessMessage());
@@ -168,6 +169,7 @@ export const deleteStudent = () => async (dispatch, getState) => {
     dispatch(fetchAdminStudents());
     dispatch(fetchStudents());
     dispatch(fetchTopStudents());
+    dispatch(fetchHouses());
     setTimeout(() => {
       dispatch(sendSuccessMessage());
     }, 5000);
