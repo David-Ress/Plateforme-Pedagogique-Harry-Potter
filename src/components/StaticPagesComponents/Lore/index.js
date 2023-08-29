@@ -29,7 +29,6 @@ const Lore = () => {
       <div className="lore-wrapper">
         <h2 className="lore-title">Bienvenue à Poudlard!</h2>
         <ul className="house-sigils">
-          {/* Liste des props pour SigilElement: img, name */}
           <SigilElement
             img={gryffindorSigil}
             name="Gryffondor"
