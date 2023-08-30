@@ -58,8 +58,8 @@ const Student = ({
     <div className="point-student">
       <div className="point-student-header">
         <div className="student-header-info">
-          <span className="student-point-name">{firstname}  </span>
           <span className="student-point-name"> {lastname} </span>
+          <span className="student-point-name">{firstname}  </span>
           <span className="student-point-points"> Classe : {class_name}</span>
           <span className="student-point-points"> Maison : {house_name}</span>
           {deleteConfirmation ? <button type="button" className="action-button" onClick={onClickConfirm}>Recliquez pour confirmer</button>
