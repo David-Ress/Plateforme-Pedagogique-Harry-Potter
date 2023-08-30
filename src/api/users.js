@@ -34,7 +34,6 @@ export const login = () => async (dispatch, getState) => {
       dispatch(sendErrorMessage());
     }, 5000);
     console.log('Errorus Console-logus!!!', e);
-    console.log(axiosInstance.defaults.headers);
   }
 };
 

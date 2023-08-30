@@ -35,6 +35,22 @@ const House = ({
     setShouldRender(!shouldRender);
   };
 
+  const handlePointShortcutsClick = (event) => {
+    dispatch(selectHouse(id));
+    dispatch(changeUser(user_id));
+    dispatch(changeContentAndValue({ key: 'content', value: 'Ajout rapide' }));
+    dispatch(changeContentAndValue({ key: 'value', value: event.target.value }));
+    if (event.target.value > 0) {
+      console.log('I clicked on positive');
+      dispatch(addPointHouses());
+    }
+    else {
+      console.log('I clicked on negative');
+      dispatch(changeContentAndValue({ key: 'value', value: (event.target.value * -1) }));
+      dispatch(removePointHouses());
+    }
+  };
+
   const handleRemovePoint = (evt) => {
     evt.preventDefault();
     dispatch(removePointHouses());
@@ -71,8 +87,13 @@ const House = ({
           <span className="house-point-points">{houses_total_score} points </span>
         </div>
         <div className="point-house-manage">
+          <button className="quick-shortcut red" type="button" value={-5} onClick={handlePointShortcutsClick}>-5</button>
+          <button className="quick-shortcut orange" type="button" value={-3} onClick={handlePointShortcutsClick}>-3</button>
+          <button className="quick-shortcut lightgreen" type="button" value={5} onClick={handlePointShortcutsClick}>+5</button>
+          <button className="quick-shortcut green" type="button" value={10} onClick={handlePointShortcutsClick}>+10</button>
           <div className="add" onClick={manageAddPoint}>+</div>
           <div className="delete" onClick={manageDeletePoint}>-</div>
+
         </div>
       </div>
 

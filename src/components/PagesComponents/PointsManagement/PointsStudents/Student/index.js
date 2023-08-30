@@ -32,6 +32,20 @@ const Student = ({
     toggleAddPoint(id);
   };
 
+  const handlePointShortcutsClick = (event) => {
+    dispatch(selectStudent(id));
+    dispatch(changeUser(user_id));
+    dispatch(changeContentAndValue({ key: 'content', value: 'Ajout rapide' }));
+    dispatch(changeContentAndValue({ key: 'value', value: event.target.value }));
+    if (event.target.value > 0) {
+      dispatch(addPointStudents());
+    }
+    else {
+      dispatch(changeContentAndValue({ key: 'value', value: (event.target.value * -1) }));
+      dispatch(removePointStudents());
+    }
+  };
+
   const handleRemovePoint = (evt) => {
     evt.preventDefault();
     dispatch(removePointStudents());
@@ -60,11 +74,15 @@ const Student = ({
     <div className="point-student">
       <div className="point-student-header">
         <div className="student-header-info">
-          <span className="student-point-name">{firstname} {lastname} </span>
+          <span className="student-point-name"> {lastname} {firstname}  </span>
           <span className="student-point-house">Maison : {house_name} </span>
           <span className="student-point-points">{student_total_score} points </span>
         </div>
         <div className="point-student-manage">
+          <button className="quick-shortcut red" type="button" value={-5} onClick={handlePointShortcutsClick}>-5</button>
+          <button className="quick-shortcut orange" type="button" value={-3} onClick={handlePointShortcutsClick}>-3</button>
+          <button className="quick-shortcut lightgreen" type="button" value={5} onClick={handlePointShortcutsClick}>+5</button>
+          <button className="quick-shortcut green" type="button" value={10} onClick={handlePointShortcutsClick}>+10</button>
           <div className="add" onClick={manageAddPoint}>+</div>
           <div className="delete" onClick={manageDeletePoint}>-</div>
         </div>
