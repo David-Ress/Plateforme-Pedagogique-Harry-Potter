@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable import/no-extraneous-dependencies */
 import { createAction, createReducer } from '@reduxjs/toolkit';
 
